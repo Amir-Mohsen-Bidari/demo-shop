@@ -1,0 +1,36 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    ویرایش فروشگاه
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <form method="POST" action="">
+        <p>
+            ویرایش فروشگاه {{ shop.name }}
+        </p>
+        {% csrf_token %}
+        <input type="email" name="email" maxlength="255" hidden value="{{ form.email.value }}"/>
+        <label for="name">name</label>
+        <p>{{ form.errors.name }}</p>
+        <input type="text" name="name" maxlength="64" value="{{ form.name.value }}"/>
+        <label for="description">description</label>
+        <p>{{ form.errors.description }}</p>
+        <input type="text" name="description" value="{{ form.description.value }}"/>
+        <label for="logo">logo</label>
+        <p>{{ form.errors.logo }}</p>
+        <input type="file" name="logo" accept="image/*" value="{{ form.logo.value }}"/>
+        {{form.non_field_errors}}
+        <div><input id="form-btn" class="font-size-2" type="submit" value="ثبت">
+        </div>
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}

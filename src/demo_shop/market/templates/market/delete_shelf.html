@@ -1,0 +1,32 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    ویرایش قفسه
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <form method="POST" action="">
+        <p>
+            Deleting shelf of {{ shelf.product }}<br/>
+            from shop: {{ shelf.shop }}<br/>
+            price: {{ shelf.price }}<br/>
+            discount price: {{ shelf.discount_price }}<br/>
+            remaining: {{ shelf.remaining }}<br/>
+        </p>
+        {% csrf_token %}
+
+        <input type="submit" value="delete">
+
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}
+    
+    

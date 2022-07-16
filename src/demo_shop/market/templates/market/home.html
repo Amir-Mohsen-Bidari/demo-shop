@@ -1,0 +1,33 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Demo Shop | خانه
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/home_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    {% for shelf in shelves %}
+        <a class="product-card" href="{% url 'market:shelf' id=shelf.id %}">
+            <div class="product-image">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <rect style="fill:var(--color-s4)" x="20" y="20" width="50" height="50" rx="10"/>
+                    <rect style="fill:var(--color-p4)" x="40" y="40" width="50" height="50" rx="25" />
+                </svg>
+            </div>
+            <div class="product-name">{{ shelf.product.name }}</div>
+            {% if shelf.discount_price %}
+                <div class="product-price">{{ shelf.discount_price }}</div>
+            {% else %}
+                <div class="product-price">{{ shelf.price }}</div>
+            {% endif %} 
+            <div class="product-shop">{{ shelf.shop }}</div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock main %}
+    

@@ -1,0 +1,42 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    ویرایش مالک
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <p dir="rtl">ویرایش مالکیت {{ owner }} بر {{ shop }}:</p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form }}
+        <!-- <input type="number" name="shop" value="{{ shop.id }}" hidden>
+        <input type="number" name="owner" value="{{ owner.id }}" hidden>
+        <label for="can_edit_shop">can edit shop</label>
+        <p>{{ form.errors.can_edit_shop }}</p>
+        <input type="checkbox" name="can_edit_shop" id="can_edit_shop"/>
+        <label for="can_open_shelf">can open shelf</label>
+        <p>{{ form.errors.can_open_shelf }}</p>
+        <input type="checkbox" name="can_open_shelf" id="can_open_shelf"/>
+        <label for="can_edit_shelf">can edit shelf</label>
+        <p>{{ form.errors.can_edit_shelf }}</p>
+        <input type="checkbox" name="can_edit_shelf" id="can_edit_shelf"/>
+        <label for="can_delete_shelf">can delete shelf</label>
+        <p>{{ form.errors.can_delete_shelf }}</p>
+        <input type="checkbox" name="can_delete_shelf" id="can_delete_shelf"/>
+        <label for="can_add_product">can add product</label>
+        <p>{{ form.errors.can_add_product }}</p>
+        <input type="checkbox" name="can_add_product" id="can_add_product"/>
+        <p>{{ form.non_field_errors }}</p> -->
+        <input type="submit" value="ثبت"/>
+
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}

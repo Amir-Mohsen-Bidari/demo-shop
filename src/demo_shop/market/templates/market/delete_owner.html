@@ -1,0 +1,33 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    حذف مالک
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <form method="POST" action="">
+        <p dir="rtl">
+            حذف {{ owner }} از مالکان فروشگاه {{ shop.name }}<br>
+            مالک: {{ owner }}<br>
+            فروشگاه: {{ shop }}<br>
+            اجازه‌ها:<br>
+            ویراش فروشگاه: {{ own.can_edit_shop }}<br>
+            افزودن قفسه: {{ own.can_open_shelf }}<br>
+            ویراش قفسه: {{ own.can_edit_shelf }}<br>
+            حذف قفسه: {{ own.can_delete_shelf }}<br>
+            ثبت کالا: {{ own.can_add_product }}<br>
+        </p>
+        {% csrf_token %}
+        <input type="submit" value="حذف">
+
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}

@@ -1,0 +1,31 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    افزودن فروشگاه
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p>{{ form.errors.email }}</p>
+        <input type="email" name="email" maxlength="255" required placeholder="Your email" value="{{ form.email.value }}"/>
+        <p>{{ form.errors.name }}</p>
+        <input type="text" name="name" maxlength="64" required placeholder="Your shop name" value="{{ form.name.value }}"/>
+        <p>{{ form.errors.description }}</p>
+        <input type="text" name="description" placeholder="Describe your shop" value="{{ form.description.value }}"/>
+        <p>{{ form.errors.logo }}</p>
+        <input type="file" name="logo" accept="image/*" value="{{ form.logo.value }}"/>
+        <p>{{form.non_field_errors}}</p>
+        <div><input id="form-btn" class="font-size-2" type="submit" value="ثبت">
+        <p>قبلاً فروشگاه‌تان را ثبت کردید؟<a href="{% url 'market:my_shops' %}"> فروشگاه من</a></p></div>
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}

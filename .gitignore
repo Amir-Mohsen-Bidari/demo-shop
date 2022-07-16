@@ -1,0 +1,10 @@
+*.[oa]
+*~
+__pycache__/
+*.sqlite3
+pyvenv.cfg
+static/
+media/
+Include/
+Lib/
+Scripts/

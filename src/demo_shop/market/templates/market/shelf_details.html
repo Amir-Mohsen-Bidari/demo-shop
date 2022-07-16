@@ -1,0 +1,31 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    جزییات کالا
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/home_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+<h1>shelf detail</h1>
+<p>name: {{ shelf.product.name }}</p>
+<p>seller: {{ shelf.shop }}</p>
+
+{% if shelf.discount_price %}
+<p>price: <span style="text-decoration:line-through ;">{{ shelf.price }}</span> -> {{ shelf.discount_price }}</p>
+{% else %}
+<p>price: {{ shelf.price }} </p>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="number" name="number" id="number" value="1" min="1">
+    <input type="submit" value="افزودن به سبد">
+</form>
+</div>
+
+{% endblock main %}

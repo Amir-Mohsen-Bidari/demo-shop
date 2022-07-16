@@ -1,0 +1,38 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    ویرایش قفسه
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <form method="POST" action="">
+        <p>
+            Editing shelf of {{ shelf.product }}<br/>
+            from shop: {{ shelf.shop }}<br/>
+        </p>
+        {% csrf_token %}
+        <label for="price">price</label>
+        <p>{{ form.errors.price }}</p>
+        <input type="number" name="price" id="price" min="1" value="{{ shelf.price }}">
+        <label for="discount_price">discount_price</label>
+        <p>{{ form.errors.discount_price }}</p>
+        <input type="number" name="discount_price" id="discount_price" min="1" value="{{ shelf.discount_price }}">
+        <label for="remaining">remaining</label>
+        <p>{{ form.errors.remaining }}</p>
+        <input type="number" name="remaining" id="remaining" min="1" value="{{ shelf.remaining }}">
+        <p>{{ form.non_field_errors }}</p>
+        <input type="submit" value="submit">
+
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}
+    
+    

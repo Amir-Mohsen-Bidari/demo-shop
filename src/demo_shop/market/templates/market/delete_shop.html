@@ -1,0 +1,29 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    حذف فروشگاه
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <form method="POST" action="">
+        <p dir="rtl">
+            حذف فروشگاه {{ shop.name }}<br/>
+            ایمیل: {{ shop.email }}<br/>
+            نام: {{ shop.name }}<br/>
+            شرح: {{ shop.description }}<br/>
+            نماد: <img src="{{ shop.logo.url }}"/><br/>
+        </p>
+        {% csrf_token %}
+        <div><input id="form-btn" class="font-size-2" type="submit" value="حذف">
+        </div>
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}

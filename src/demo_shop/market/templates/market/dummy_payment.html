@@ -1,0 +1,21 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    خرید
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <div>total price{{ basket.total_price }}</div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="خرید">  
+    </form>
+</div>
+{% endblock main %}
+    

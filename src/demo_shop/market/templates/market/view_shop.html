@@ -1,0 +1,70 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    فروشگاه من
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/home_style.css' %}
+{% endblock stylesheet %}
+
+{% block filters %}
+{% endblock filters %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <div>{{ shop.name }}
+        
+        {% if perm.can_edit_shop %}
+            <a href="{% url 'market:edit_shop' shop_id=shop.id %}">ویرایش</a>
+        {% endif %}
+            
+    </div>
+    <div>Owners:
+        {% for own in owns %}
+            <p>
+                {{ own.owner }}
+                {% if own.is_founder %}
+                    <em>Founder</em>
+                {% endif %}
+                {% if perm.can_edit_shop and not own.is_founder %}
+                    <a href="{% url 'market:edit_owner' ownership_id=own.id %}">Edit</a>
+                    <a href="{% url 'market:delete_owner' ownership_id=own.id %}">Delete</a>
+                {% endif %}
+            </p>
+        {% endfor %}
+        
+        {% if perm.can_edit_shop %}
+            <a href="{% url 'market:add_owner' shop_id=shop.id %}">Add owner</a>
+        {% endif %}
+            
+    </div>
+    <div>Shelfs:
+        {% for shelf in shelves %}
+            <p>
+                {{ shelf.product }}:
+                {% if shelf.discount_price %}
+                    <del>{{ shelf.price }}</del>->{{ shelf.discount_price }}
+                {% else %}
+                    {{ shelf.price }}
+                {% endif %}
+                
+                {% if perm.can_edit_shelf %}
+                    <a href="{% url 'market:edit_shelf' shelf_id=shelf.id %}">edit</a>
+                {% endif %}
+                {% if perm.can_delete_shelf %}
+                    <a href="{% url 'market:delete_shelf' shelf_id=shelf.id %}">delete</a>
+                {% endif %}
+                    
+            </p>
+        {% endfor %}
+        {% if perm.can_open_shelf %}
+            <a href="{% url 'market:add_shelf' shop_id=shop.id %}">open a new shelf</a>
+        {% endif %}
+        {% if perm.can_add_product %}
+            <a href="{% url 'market:add_product' %}">register a new product</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock main %}

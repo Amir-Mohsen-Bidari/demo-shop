@@ -1,0 +1,30 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    فروشگاه‌های من
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block filters %}
+{% endblock filters %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    {% for own in owns %}
+        <a href="{% url 'market:shop' shop_id=own.shop.id %}">{{ own.shop.name }} <div class="icon-small"> <img src="{{ own.shop.logo.url }}" alt="no logo"> </div></a>
+        
+        {% if own.can_edit_shop %}
+            <a href="{% url 'market:edit_shop' shop_id=own.shop.id %}">ویرایش</a>
+        {% endif %}
+        {% if own.is_founder %}
+            <a href="{% url 'market:delete_shop' shop_id=own.shop.id %}">حذف</a>
+        {% endif %}
+            
+    {% endfor %}
+    <a href="{% url 'market:add_shop' %}">Add a new shop</a>
+</div>
+{% endblock main %}

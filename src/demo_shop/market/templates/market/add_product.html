@@ -1,0 +1,29 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    افزودن کالا
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/login_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="name">name:</label>
+        <p>{{ form.errors.name }}</p>
+        <input type="text" name="name" required>
+        <label for="description">description:</label>
+        <p>{{ form.errors.description }}</p>
+        <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+        <input type="submit" value="submit">
+    </form>
+</div>
+{% endblock main %}
+
+{% block filters %}{% endblock filters %}
+    
+    

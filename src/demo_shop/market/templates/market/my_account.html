@@ -1,0 +1,42 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Demo Shop | خانه
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/home_style.css' %}
+{% endblock stylesheet %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <div>{{user}}</div>
+    <div>
+        برگه اطلاعات شخصی<br/>
+        ایمیل: {{ user.email }}<br/>
+        نام کاربری: {{ user.username }}<br/>
+        نام: {{ user.first_name }}<br/>
+        نام خانوادگی: {{ user.last_name }}<br/>
+        نمایه: <img style="border-radius: 0.5rem;" src="{{ user.profile.url }}"><br/>
+    </div>
+    <div>
+        سبدها<br/>
+        
+        {% for basket in baskets %}
+            <p>{{ basket }}</p>
+        {% endfor %}
+            
+    </div>
+    <div>
+        سبد فعلی<br/>
+        <a href="{% url 'market:my_basket' %}">{{ active_basket }}</a>
+    </div>
+</div>
+{% endblock main %}
+
+{% block filters %}
+<a href="{% url 'market:logout' %}">Logout</a>
+{% endblock filters %}
+    
+    
