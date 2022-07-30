@@ -1,0 +1,60 @@
+{% extends 'market/base.html' %}
+{% load static %}
+
+{% block page_title %}
+    رفع ابهام سبدها
+{% endblock page_title %}
+
+{% block stylesheet %}
+    {% static 'market/css/form_style.css' %}
+{% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
+
+{% block main %}
+<div id="main" class="pad-2">
+    <script>
+        function add(e){
+            action = document.getElementById('action')
+            action.value = 'add'
+        }
+        function user(e){
+            action = document.getElementById('action')
+            action.value = 'user'
+        }
+        function anonymous(e){
+            action = document.getElementById('action')
+            action.value = 'anonymous'
+        }
+    </script>
+    <form dir="auto" action="" method="POST">
+        {% csrf_token %}
+        <div class="form-header">
+            سبد قبلی شما با این سبد همپوشانی دارد
+        </div>
+        <input type="hidden" name="action" id="action">
+        <div class="list-body">
+            <div class="item">
+                <span>سبد قبلی</span>
+                {% for order in user_orders %}
+                <span>{{ order }}</span>
+                {% endfor %}
+            </div>
+            <div class="item">
+                <span>سبد ناشناس</span>
+                {% for order in anonymous_orders %}
+                <span>{{ order }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="form-submit">
+            <p>چه کنیم؟</p>
+            <input type="submit"class="form-btn font-size-2" onclick="add()" value="جمع دو سبد">
+            <input type="submit"class="form-btn font-size-2" onclick="user()" value="نادیده گرفتن سبد ناشناس">
+            <input type="submit"class="form-btn font-size-2" onclick="anonymous()" value="نادیده گرفتن سبد قبلی">
+        </div>
+    </form>
+</div>
+{% endblock main %}

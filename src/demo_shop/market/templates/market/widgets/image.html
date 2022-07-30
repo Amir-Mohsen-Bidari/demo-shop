@@ -1,0 +1,8 @@
+<div dir="auto" class="file-input">
+    <label class="file-input-button" for="{{ widget.attrs.id }}"><i class="typcn typcn-attachment"></i>
+        انتخاب تصویر
+    </label>
+    <div class="file-input-preview"></div>
+    <span class="file-input-text"> تصویری انتخاب نشده</span>
+    <input type="{{ widget.type }}" accept="image/*" name="{{ widget.name }}"{% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %}{% include "django/forms/widgets/attrs.html" %}>
+</div>

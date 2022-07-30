@@ -6,15 +6,24 @@
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/login_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
 <div id="main" class="pad-2">
-    <div>total price{{ basket.total_price }}</div>
-    <form action="" method="POST">
+    <form dir="auto" action="" method="POST">
+        <div class="form-header">
+            خرید فرضی {{ user }}
+        </div>
+        <div>مبلغ کل: {{ basket.total_price }}</div>
         {% csrf_token %}
-        <input type="submit" value="خرید">  
+        <div class="form-submit">
+            <input class="form-btn" class="font-size-2" type="submit" value="خرید">
+        </div>
     </form>
 </div>
 {% endblock main %}

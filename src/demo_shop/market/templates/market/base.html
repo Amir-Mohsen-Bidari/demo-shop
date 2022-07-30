@@ -6,13 +6,19 @@
     <meta charset="UTF-8"/>
     <title>{% block page_title %}Here goes the title{% endblock page_title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "market/css/styles.css" %}{% endblock %}">
+    {% block general %}
+	<link rel="stylesheet" type="text/css" href="{% static 'market/css/general_style.css' %}">
+    {% endblock %}
+	<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'market/css/styles.css' %}{% endblock %}">
+    {{ form.media }}
 </head>
 <body>
 
     {% block top_bar %}
     <div id="top-bar">
         <!-- here is a top-bar with a search-box and site name. -->
+        
+        {% block logo_pack %}
         <a id="logo-pack" href="{% url 'market:home' %}">
             <div id="site-logo" class="icon-medium">    
                 <svg
@@ -26,6 +32,9 @@
             </div>
             <div class="font-size-3"><span id="site-name" class="font-size-4 bold">Demo Shop</span> site</div>
         </a>
+        {% endblock logo_pack %}
+        
+        {% block search_box %}
         <div id="search-box" class="bor-rad-3 mar-0">
             <input class="pad-1 mar-0 font-size-2" type="text" placeholder="search...">
             <button id="search-button" class="icon-small pad-1 mar-0">
@@ -39,6 +48,8 @@
                 </svg>
             </button>
         </div>
+        {% endblock search_box %}
+            
     </div>
     {% endblock top_bar %}
 
@@ -50,6 +61,8 @@
 
     {% block options %}        
     <div id="options" class="pad-0">
+
+        {% block account_option %}
         {% if request.user.is_authenticated %}
         <!-- حساب -->
         <div class="option-box">
@@ -78,6 +91,9 @@
             </a>
         </div>
         {% endif %}
+        {% endblock account_option %}
+
+        {% block basket_option %}
         <div class="option-box">
             <a class="option" href="{% url 'market:my_basket' %}">
                 <div class="icon-larg">
@@ -93,6 +109,9 @@
                 <div class="option-name font-size-3">سبد خرید</div>
             </a>
         </div>
+        {% endblock basket_option %}
+
+        {% block my_shop %}
         <div class="option-box">
             <a class="option" href="{% url 'market:my_shops' %}">
                 <div class="icon-larg">
@@ -109,6 +128,9 @@
                 <div class="option-name font-size-3">فروشگاه من</div>
             </a>
         </div>
+        {% endblock my_shop %}
+
+        {% block option_4 %}
         <div class="option-box">
             <a class="option" href="">
                 <div class="icon-larg">
@@ -117,11 +139,7 @@
                 <div class="option-name font-size-3">مثلا مقایسه که نداریم</div>
             </a>
         </div>
-        
-        <!-- here is 1/12 side-bar for icon and account icon
-        or login/signin icon and a basket icon
-        with a number showing total price and a bunch of other
-        options depending on user account. -->
+        {% endblock option_4 %}
     </div>
     {% endblock options %}
 

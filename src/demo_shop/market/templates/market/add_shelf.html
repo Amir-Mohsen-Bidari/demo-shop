@@ -6,36 +6,30 @@
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/login_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
 <div id="main" class="pad-2">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <input type="number" name="shop" value="{{ shop.id }}" hidden>
-        <label for="product">product</label>
-        <p>{{ form.errors.product }}</p>
-        <select name="product" id="product">
-            {% for product in products %}
-                <option value="{{ product.id }}">{{ product }}</option>
-            {% endfor %}
-        </select>
-        <label for="price">price</label>
-        <p>{{ form.errors.price }}</p>
-        <input type="number" name="price" id="price" min="1">
-        <label for="discount_price">discount price</label>
-        <p>{{ form.errors.discount_price }}</p>
-        <input type="number" name="discount_price" id="discount_price" min="1">
-        <label for="remaining">remaining</label>
-        <p>{{ form.errors.remaining }}</p>
-        <input type="number" name="remaining" id="remaining" min="1">
-
-        <p>{{ form.non_field_errors }}</p>
-        <input type="submit" value="submit">
-
+    <form dir="auto" method="POST" action="">
+        <div class="form-header font-size-2">افزودن قفسه به فروشگاه {{ shop.name }}</div>
+        <div class="form-inputs">
+            {% csrf_token %}
+            <fieldset>
+                <div class="field-container">{{ form.product }}{{ form.errors.product }}</div>
+                <div class="field-container">{{ form.price }}{{ form.errors.price }}</div>
+                <div class="field-container">{{ form.discount_price }}{{ form.errors.discount_price }}</div>
+                <div class="field-container">{{ form.remaining }}{{ form.errors.remaining }}</div>
+            </fieldset>
+        </div>
+        <div class="form-submit">
+            <div class="non-field-errors">{{ form.non_field_errors }}</div>
+            <input class="form-btn" class="font-size-2" type="submit" value="ثبت">
+        </div>
     </form>
 </div>
 {% endblock main %}
-
-{% block filters %}{% endblock filters %}

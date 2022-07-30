@@ -2,31 +2,38 @@
 {% load static %}
 
 {% block page_title %}
-    ویرایش قفسه
+    حذف قفسه
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/login_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
 <div id="main" class="pad-2">
-    <form method="POST" action="">
-        <p>
-            Deleting shelf of {{ shelf.product }}<br/>
-            from shop: {{ shelf.shop }}<br/>
-            price: {{ shelf.price }}<br/>
-            discount price: {{ shelf.discount_price }}<br/>
-            remaining: {{ shelf.remaining }}<br/>
-        </p>
-        {% csrf_token %}
-
-        <input type="submit" value="delete">
+    <form dir="auto" method="POST" action="">
+        <div class="form-header font-size-2">بستن قفسه</div>
+        <div class="form-inputs">
+            {% csrf_token %}
+            <fieldset class="list-body">
+                <legend>اطلاعات قفسه</legend>
+                <div class="item">کالا: {{ shelf.product }}</div>
+                <div class="item">فروشگاه: {{ shelf.shop }}</div>
+                <div class="item">قیمت: {{ shelf.discount_price }}</div>
+                {% if shelf.discount_price %}
+                <div class="item">قیمت: {{ shelf.discount_price }}</div>
+                {% endif %}
+                <div class="item">تعداد: {{ shelf.remaining }}</div>
+            </fieldset>
+        </div>
+        <div class="form-submit">
+            <input class="form-btn" class="font-size-2" type="submit" value="حذف">
+        </div>
 
     </form>
 </div>
 {% endblock main %}
-
-{% block filters %}{% endblock filters %}
-    
-    

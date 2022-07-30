@@ -6,28 +6,46 @@
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/login_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
 <div id="main" class="pad-2">
-    <form method="POST" action="">
-        <p dir="rtl">
-            حذف {{ owner }} از مالکان فروشگاه {{ shop.name }}<br>
-            مالک: {{ owner }}<br>
-            فروشگاه: {{ shop }}<br>
-            اجازه‌ها:<br>
-            ویراش فروشگاه: {{ own.can_edit_shop }}<br>
-            افزودن قفسه: {{ own.can_open_shelf }}<br>
-            ویراش قفسه: {{ own.can_edit_shelf }}<br>
-            حذف قفسه: {{ own.can_delete_shelf }}<br>
-            ثبت کالا: {{ own.can_add_product }}<br>
-        </p>
-        {% csrf_token %}
-        <input type="submit" value="حذف">
-
+    <form dir="auto" method="POST" action="">
+        <div class="form-header font-size-2">سلب مالکیت</div>
+        <div class="form-inputs">
+            {% csrf_token %}
+            <fieldset class="list-body">
+                <legend>اطلاعات مالکیت</legend>
+                <div class="item">مالک: {{ owner }}</div>
+                <div class="item">فروشگاه: {{ shop }}</div>
+            </fieldset>
+            <fieldset class="list-body">
+                <legend>اجازه‌ها</legend>
+                {% if own.can_edit_shop %}
+                <div class="item">ویراش فروشگاه</div>
+                {% endif %}
+                {% if own.can_open_shelf %}
+                <div class="item">افزودن قفسه</div>
+                {% endif %}
+                {% if own.can_edit_shelf %}
+                <div class="item">ویرایش قفسه</div>
+                {% endif %}
+                {% if own.can_delete_shelf %}
+                <div class="item">حذف قفسه</div>
+                {% endif %}
+                {% if own.can_add_product %}
+                <div class="item">ثبت کالا</div>
+                {% endif %}
+            </fieldset>
+        </div>
+        <div class="form-submit">
+            <input class="form-btn" class="font-size-2" type="submit" value="حذف">
+        </div>
     </form>
 </div>
 {% endblock main %}
-
-{% block filters %}{% endblock filters %}

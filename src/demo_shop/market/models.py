@@ -119,6 +119,12 @@ class Shelf(models.Model):
 
     def __str__(self) -> str:
         return f'{self.shop}: {self.product}-{self.price}'
+    @property
+    def final_price(self):
+        if self.discount_price:
+            return self.discount_price
+        else:
+            return self.price
 
 class Basket(models.Model):
     """Basket model
@@ -181,7 +187,7 @@ class Order(models.Model):
         return f'{self.number} of {self.shelf.product}'
 
     def total_price(self):
-        return self.shelf.price * self.number
+        return self.shelf.final_price * self.number
 
 class SiteUserManager(BaseUserManager):
     """A custom manager for ``SiteUser``."""

@@ -3,8 +3,11 @@
 __pycache__/
 *.sqlite3
 pyvenv.cfg
-static/
 media/
 Include/
 Lib/
 Scripts/
+todo.txt
+src/demo_shop/market/static/market/fonts/
+src/demo_shop/market/static/market/svg/
+src/demo_shop/market/static/market/typcn/
