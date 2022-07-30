@@ -2,12 +2,16 @@
 {% load static %}
 
 {% block page_title %}
-    افزودن قفسه
+    خطا
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/login_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
 <div id="main" class="pad-2">
@@ -17,5 +21,3 @@
     </h1>
 </div>
 {% endblock main %}
-
-{% block filters %}{% endblock filters %}

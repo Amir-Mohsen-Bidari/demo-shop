@@ -1,0 +1,9 @@
+<div dir="rtl" class="checkbox-input">
+    <label class="checkbox-input-box" for="{{ widget.attrs.id }}">
+        <div class="checkbox-active"><i class="typcn typcn-tick"></i></div>
+        <div class="checkbox-inactive"><i class="typcn typcn-times"></i></div>
+        <div class="checkbox-input-button"></div>
+    </label>
+    <span class="checkbox-input-text">{{ widget.text }}</span>
+    <input type="{{ widget.type }}" name="{{ widget.name }}"{% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %}{% include "django/forms/widgets/attrs.html" %}>
+</div>

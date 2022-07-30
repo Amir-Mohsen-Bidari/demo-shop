@@ -1,0 +1,56 @@
+.select-input {
+    color: var(--color-n5);
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: var(--color-ng1);
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 3rem;
+    color: var(--color-n5);
+} .select-input:hover,
+.select-input:focus {
+    background-color: var(--color-ng2);
+}
+.select-title {
+    margin-inline-end: 0.5em;
+}
+.select-title,
+.select-selected {
+    white-space: nowrap;
+}
+.select-input select {
+    display: none;
+}
+.select-dropdown {
+    position: relative;
+    background-color: var(--color-ng2);
+    color: var(--color-n5);
+    padding: 0.25em 0.5em;
+    border-radius: 3rem;
+    min-width: 2rem;
+    z-index: 99;
+}
+.select-option-list {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+    position: absolute;
+    width: fit-content;
+    top: 2.6em;
+    left: 0;
+    max-height: 0;
+    background-color: var(--color-ng1);
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+.select-option-list > div {
+    padding: 0.25em 0.5em;
+    border-radius: 0.5em;
+    white-space: nowrap;
+    outline: 1px solid var(--color-no);
+} .select-option-list > div:hover,
+.select-option-list > div:focus {
+    background-color: var(--color-ng1);
+    outline: 1px solid var(--color-s5);
+}

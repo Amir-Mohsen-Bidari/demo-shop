@@ -6,24 +6,30 @@
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/login_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
 <div id="main" class="pad-2">
-    <form method="POST" action="">
-        <p dir="rtl">
-            حذف فروشگاه {{ shop.name }}<br/>
-            ایمیل: {{ shop.email }}<br/>
-            نام: {{ shop.name }}<br/>
-            شرح: {{ shop.description }}<br/>
-            نماد: <img src="{{ shop.logo.url }}"/><br/>
-        </p>
-        {% csrf_token %}
-        <div><input id="form-btn" class="font-size-2" type="submit" value="حذف">
+    <form dir="auto" method="POST" action="">
+        <div class="form-header font-size-2">بستن فروشگاه</div>
+        <div class="form-inputs">
+            {% csrf_token %}
+            <fieldset class="list-body">
+                <legend>اطلاعات فروشگاه</legend>
+                <div class="item">نام: {{ shop.name }}</div>
+                <div class="item">ایمیل: {{ shop.email }}</div>
+                <div class="item">شرح: {{ shop.description }}</div>
+                <div class="item">نماد: <span class="icon-small"><img src="{{ shop.logo.url }}"/></span></div>
+            </fieldset>
+        </div>
+        <div class="form-submit">
+            <input class="form-btn" class="font-size-2" type="submit" value="حذف">
         </div>
     </form>
 </div>
 {% endblock main %}
-
-{% block filters %}{% endblock filters %}

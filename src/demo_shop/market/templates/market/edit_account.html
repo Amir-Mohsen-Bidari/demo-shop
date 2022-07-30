@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_title %}
-    افزودن کالا
+    ویرایش حساب
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -14,19 +14,22 @@
 {% block filters %}{% endblock filters %}
 
 {% block main %}
-<div id="main" class="pad-2">
+<div id="main">
     <form dir="auto" method="POST" action="">
-        <div class="form-header font-size-2">درخواست ثبت کالا</div>
+        <div class="form-header font-size-2">ویرایش حساب {{ user.name }}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset>
-                <div class="field-container">{{ form.name }}{{ form.errors.name }}</div>
-                <div class="field-container">{{ form.description }}{{ form.errors.description }}</div>
+                <div class="field-container">{{ form.username }}{{ form.errors.username }}</div>
+                <div class="field-container">{{ form.first_name }}{{ form.errors.first_name }}</div>
+                <div class="field-container">{{ form.last_name }}{{ form.errors.last_name }}</div>
+                <div class="field-container">{{ form.profile }}{{ form.errors.profile }}</div>
             </fieldset>
         </div>
         <div class="form-submit">
             <div class="non-field-errors">{{ form.non_field_errors }}</div>
             <input class="form-btn" class="font-size-2" type="submit" value="ثبت">
+            <p>منصرف شدید؟<a href="{% url 'market:my_account' %}"> حساب من</a></p>
         </div>
     </form>
 </div>

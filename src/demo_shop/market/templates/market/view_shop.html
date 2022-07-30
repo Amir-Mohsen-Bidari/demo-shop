@@ -6,65 +6,76 @@
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/home_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
 
-{% block filters %}
-{% endblock filters %}
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
-<div id="main" class="pad-2">
-    <div>{{ shop.name }}
-        
+<div dir="rtl" id="main" class="pad-2">
+    <div class="list mar-3">
+        <div class="list-head">{{ shop.name }}</div>
         {% if perm.can_edit_shop %}
+        <div class="list-end">
             <a href="{% url 'market:edit_shop' shop_id=shop.id %}">ویرایش</a>
+        </div>
         {% endif %}
-            
     </div>
-    <div>Owners:
-        {% for own in owns %}
-            <p>
-                {{ own.owner }}
+    <div class="list mar-3">
+        <div class="list-head">مالکان</div>
+        <div class="list-body">
+            {% for own in owns %}
+            <div class="item">
+                <span>{{ own.owner }}</span>
                 {% if own.is_founder %}
-                    <em>Founder</em>
+                    <span>بنیانگذار</span>
                 {% endif %}
                 {% if perm.can_edit_shop and not own.is_founder %}
-                    <a href="{% url 'market:edit_owner' ownership_id=own.id %}">Edit</a>
-                    <a href="{% url 'market:delete_owner' ownership_id=own.id %}">Delete</a>
+                    <a href="{% url 'market:edit_owner' ownership_id=own.id %}">ویرایش</a>
+                    <a href="{% url 'market:delete_owner' ownership_id=own.id %}">حذف</a>
                 {% endif %}
-            </p>
-        {% endfor %}
-        
-        {% if perm.can_edit_shop %}
-            <a href="{% url 'market:add_owner' shop_id=shop.id %}">Add owner</a>
-        {% endif %}
-            
+            </div>
+            {% endfor %}
+        </div>
+        <div class="list-end">
+            {% if perm.can_edit_shop %}
+            <a href="{% url 'market:add_owner' shop_id=shop.id %}">افزودن مالک</a>
+            {% endif %}
+        </div>
     </div>
-    <div>Shelfs:
-        {% for shelf in shelves %}
-            <p>
-                {{ shelf.product }}:
+    <div class="list mar-3">
+        <div class="list-head">
+            قفسه‌ها
+        </div>
+        <div class="list-body">
+            {% for shelf in shelves %}
+            <div class="item">
+                <span>{{ shelf.product }}:</span>
                 {% if shelf.discount_price %}
-                    <del>{{ shelf.price }}</del>->{{ shelf.discount_price }}
+                    <span><del>{{ shelf.price }}</del>->{{ shelf.discount_price }}</span>
                 {% else %}
-                    {{ shelf.price }}
+                    <span>{{ shelf.price }}</span>
                 {% endif %}
                 
                 {% if perm.can_edit_shelf %}
-                    <a href="{% url 'market:edit_shelf' shelf_id=shelf.id %}">edit</a>
+                    <a href="{% url 'market:edit_shelf' shelf_id=shelf.id %}">ویرایش</a>
                 {% endif %}
                 {% if perm.can_delete_shelf %}
-                    <a href="{% url 'market:delete_shelf' shelf_id=shelf.id %}">delete</a>
+                    <a href="{% url 'market:delete_shelf' shelf_id=shelf.id %}">حذف</a>
                 {% endif %}
-                    
-            </p>
-        {% endfor %}
-        {% if perm.can_open_shelf %}
-            <a href="{% url 'market:add_shelf' shop_id=shop.id %}">open a new shelf</a>
-        {% endif %}
-        {% if perm.can_add_product %}
-            <a href="{% url 'market:add_product' %}">register a new product</a>
-        {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="list-end">
+            {% if perm.can_open_shelf %}
+            <a href="{% url 'market:add_shelf' shop_id=shop.id %}">افزودن قفسه</a>
+            {% endif %}
+            {% if perm.can_add_product %}
+            <a href="{% url 'market:add_product' %}">درخواست ثبت کالا</a>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock main %}

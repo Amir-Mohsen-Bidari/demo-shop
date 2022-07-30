@@ -2,30 +2,41 @@
 {% load static %}
 
 {% block page_title %}
-    جزییات کالا
+    جزییات قفسه
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/home_style.css' %}
+    {% static 'market/css/shelf_details.css' %}
 {% endblock stylesheet %}
 
 {% block main %}
 <div id="main" class="pad-2">
-<h1>shelf detail</h1>
-<p>name: {{ shelf.product.name }}</p>
-<p>seller: {{ shelf.shop }}</p>
-
-{% if shelf.discount_price %}
-<p>price: <span style="text-decoration:line-through ;">{{ shelf.price }}</span> -> {{ shelf.discount_price }}</p>
-{% else %}
-<p>price: {{ shelf.price }} </p>
-{% endif %}
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="number" name="number" id="number" value="1" min="1">
-    <input type="submit" value="افزودن به سبد">
-</form>
+    <div class="product-image">
+        <svg viewBox="0 0 100 100">
+            <rect style="fill:var(--color-s4)" x="20" y="20" width="50" height="50" rx="10"/>
+            <rect style="fill:var(--color-p4)" x="40" y="40" width="50" height="50" rx="25" />
+        </svg>
+    </div>
+    <div class="list details">
+        <div class="list-head">جزییات قفسه</div>
+        <div class="list-body">
+            <div class="item">نام کالا: {{ shelf.product.name }}</div>
+            <div class="item">فروشگاه: {{ shelf.shop }}</div>
+            {% if shelf.discount_price %}
+            <div class="item">
+                <span>"قیمت: "</span><span style="text-decoration:line-through ;">{{ shelf.price }}</span> -> {{ shelf.discount_price }}
+            </div>
+            {% else %}
+            <div class="item">قیمت: {{ shelf.price }}</div>
+            {% endif %}
+        </div>
+        <div class="list-end"></div>
+    </div>
+    <form class="buy" action="" method="POST">
+        {% csrf_token %}
+        {{ form.number }}{{ form.errors.number }}
+        <input class="form-btn" type="submit" value="افزودن به سبد">
+    </form>
 </div>
 
 {% endblock main %}

@@ -2,41 +2,77 @@
 {% load static %}
 
 {% block page_title %}
-    Demo Shop | خانه
+    حساب من
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/home_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
 
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
+
+{% block account_option %}{% endblock account_option %}
+
 {% block main %}
-<div id="main" class="pad-2">
-    <div>{{user}}</div>
-    <div>
-        برگه اطلاعات شخصی<br/>
-        ایمیل: {{ user.email }}<br/>
-        نام کاربری: {{ user.username }}<br/>
-        نام: {{ user.first_name }}<br/>
-        نام خانوادگی: {{ user.last_name }}<br/>
-        نمایه: <img style="border-radius: 0.5rem;" src="{{ user.profile.url }}"><br/>
+<div dir="rtl" id="main" class="pad-2">
+    <div class="list mar-3">
+        <div class="list-head">برگه اطلاعات شخصی</div>
+        <div class="list-body">
+            <div class="item">
+                ایمیل: {{ user.email }}
+            </div>
+            <div class="item">
+                نام کاربری: {{ user.username }}
+            </div>
+            <div class="item">
+                نام: {{ user.first_name }}
+            </div>
+            <div class="item">
+                نام خانوادگی: {{ user.last_name }}
+            </div>
+            <div class="item">
+                نمایه: <div class="icon-medium"><img src="{{ user.profile.url }}"></div>
+            </div>
+        </div>
+        <div class="list-end">
+            <a href="{% url 'market:edit_account' %}">ویرایش حساب</a>
+            <a href="{% url 'market:logout' %}">خروج از حساب</a>
+        </div>
     </div>
-    <div>
-        سبدها<br/>
-        
+    <div class="list mar-3">
+        <div class="list-head">
+            سبدها
+        </div>
+        <div class="list-body">
         {% for basket in baskets %}
-            <p>{{ basket }}</p>
+            <div class="item">{{ basket }}</div>
         {% endfor %}
-            
+        </div>
+        <div class="list-end"></div>
+    </div>
+    <div class="list mar-3">
+        <div class="list-head">
+            سبد فعلی
+        </div>
+        <div class="list-body">
+            {% for order in active_orders %}
+                <div class="item">
+                    <span>{{ order.number }}عدد {{ order.shelf.product }}
+                    </span>
+                    <span>قیمت: {{ order.shelf.final_price }}</span>
+                    <span>فروشگاه: {{ order.shelf.shop }}</span>
+                    <span>مبلغ: {{ order.total_price }}</span>
+                </div>
+            {% endfor %}
+                
+        </div>
+        <div class="list-end">
+            <a href="{% url 'market:my_basket' %}">سبد خرید</a>
+        </div>
     </div>
     <div>
-        سبد فعلی<br/>
-        <a href="{% url 'market:my_basket' %}">{{ active_basket }}</a>
     </div>
 </div>
 {% endblock main %}
-
-{% block filters %}
-<a href="{% url 'market:logout' %}">Logout</a>
-{% endblock filters %}
-    
-    

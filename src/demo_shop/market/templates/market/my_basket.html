@@ -6,25 +6,35 @@
 {% endblock page_title %}
 
 {% block stylesheet %}
-    {% static 'market/css/login_style.css' %}
+    {% static 'market/css/form_style.css' %}
 {% endblock stylesheet %}
+
+{% block search_box %}{% endblock search_box %}
+
+{% block filters %}{% endblock filters %}
 
 {% block main %}
 <div id="main" class="pad-2">
-    <div>active basket of {{ basket.user.username }}</div>
-    {% for order in orders %}
-    <div>
-        <span dir="rtl" style="margin:0.5rem 0.5rem;">کالا: {{ order.shelf.product.name }}</span>
-        <span dir="rtl" style="margin:0.5rem 0.5rem;">فروشگاه: {{ order.shelf.shop.name }}</span>
-        <span dir="rtl" style="margin:0.5rem 0.5rem;">قیمت واحد: {{ order.shelf.price }}</span>
-        <span dir="rtl" style="margin:0.5rem 0.5rem;">تعداد: {{ order.number }}</span>
-        <span dir="rtl" style="margin:0.5rem 0.5rem;">قیمت: {{ order.total_price }}</span>
-    </div>
-    {% endfor %}
-    <div>قیمت کل: {{ basket.total_price }}</div>
-    <form action="" method="POST">
+    <form dir="auto" action="" method="POST">
         {% csrf_token %}
-        <input type="submit" value="خرید">  
+        <div class="form-header">
+            سبد خرید {{ user }}
+        </div>
+        <div class="list-body">
+            {% for order in orders %}
+            <div class="item">
+                <span>کالا: {{ order.shelf.product.name }}</span>
+                <span>فروشگاه: {{ order.shelf.shop.name }}</span>
+                <span>قیمت: {{ order.shelf.price }}</span>
+                <span>تعداد: {{ order.number }}</span>
+                <span>مبلغ: {{ order.total_price }}</span>
+            </div>
+            {% endfor %}
+            <div>مبلغ کل: {{ basket.total_price }}</div>
+        </div>
+        <div class="form-submit">
+            <input class="form-btn" class="font-size-2" type="submit" value="خرید">
+        </div>
     </form>
 </div>
 {% endblock main %}
