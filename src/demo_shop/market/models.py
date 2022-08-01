@@ -5,6 +5,8 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 from django.contrib.sessions.models import Session
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy as n_
 
 
 def shop_images(instance, filename):
@@ -21,10 +23,10 @@ class Product(models.Model):
     """
     name = models.CharField(
         max_length=256,
-        verbose_name='product name',
+        verbose_name=_('product name'),
     )
     description = models.TextField(
-        verbose_name='description',
+        verbose_name=_('description'),
     )
     registerd = models.BooleanField(default=False)
 
@@ -39,34 +41,34 @@ class Shop(models.Model):
         max_length=64,
         null=True,
         blank=True,
-        verbose_name='shop name',
+        verbose_name=_('shop name'),
     )
     description = models.TextField(
-        verbose_name='description',
+        verbose_name=_('description'),
         null=True,
         blank=True,
     )
     email = models.EmailField(
-        verbose_name='email address',
+        verbose_name=_('email address'),
         unique=True,
     )
     logo = models.ImageField(
         upload_to=shop_images,
         null=True,
         blank=True,
-        verbose_name='logo',
+        verbose_name=_('logo'),
         default='default_shop_logo.png'
     )
     owners = models.ManyToManyField(
         to='SiteUser',
-        verbose_name='owners',
+        verbose_name=_('owners'),
         through='ShopOwnership',
         related_name='shops',
         related_query_name="shop",
     )
     shelves = models.ManyToManyField(
         to='Product',
-        verbose_name='products',
+        verbose_name=_('products'),
         through='Shelf',
         related_name='shops',
         related_query_name="shop",
@@ -84,12 +86,12 @@ class ShopOwnership(models.Model):
     owner = models.ForeignKey('SiteUser', on_delete=models.CASCADE)
     shop = models.ForeignKey('Shop', on_delete=models.CASCADE)
     # Permissions
-    is_founder = models.BooleanField(default=False)
-    can_edit_shop = models.BooleanField(default=False)
-    can_open_shelf = models.BooleanField(default=False)
-    can_edit_shelf = models.BooleanField(default=False)
-    can_delete_shelf = models.BooleanField(default=False)
-    can_add_product = models.BooleanField(default=False)
+    is_founder = models.BooleanField(default=False, verbose_name=_("founder"))
+    can_edit_shop = models.BooleanField(default=False, verbose_name=_("edit shop"))
+    can_open_shelf = models.BooleanField(default=False, verbose_name=_("open shelf"))
+    can_edit_shelf = models.BooleanField(default=False, verbose_name=_("edit shelf"))
+    can_delete_shelf = models.BooleanField(default=False, verbose_name=_("delete shelf"))
+    can_add_product = models.BooleanField(default=False, verbose_name=_("product registration request"))
 
     class Meta:
         constraints = [
@@ -105,20 +107,20 @@ class Shelf(models.Model):
     Containing the normal and optional discout price the Shop
     offers for the Product, number of Products they have to sell, etc.
     """
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    shop = models.ForeignKey('Shop', on_delete=models.CASCADE)
-    price = models.PositiveBigIntegerField(verbose_name='price')
+    product = models.ForeignKey('Product', on_delete=models.CASCADE,verbose_name=_('product'))
+    shop = models.ForeignKey('Shop', on_delete=models.CASCADE,verbose_name=_('shop'))
+    price = models.PositiveBigIntegerField(verbose_name=_('price'))
     discount_price = models.PositiveBigIntegerField(
         blank=True,
         null=True,
         verbose_name='dicount price'
     )
-    remaining = models.PositiveBigIntegerField(verbose_name='remaining products')
-    opening_date = models.DateTimeField(auto_now_add=True)
-    last_edit = models.DateTimeField(auto_now=True)
+    remaining = models.PositiveBigIntegerField(verbose_name=_('remaining'))
+    opening_date = models.DateTimeField(auto_now_add=True, verbose_name=_('opening date'))
+    last_edit = models.DateTimeField(auto_now=True, verbose_name=_('last edit'))
 
     def __str__(self) -> str:
-        return f'{self.shop}: {self.product}-{self.price}'
+        return f'{self.product}-{self.price}'
     @property
     def final_price(self):
         if self.discount_price:
@@ -130,11 +132,11 @@ class Basket(models.Model):
     """Basket model
     A collection of ``Order`` to be ordered(bought) by a ``SiteUser``.
     """
-    user = models.ForeignKey('SiteUser', on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey('SiteUser', on_delete=models.CASCADE, null=True, blank=True, verbose_name=_('user'))
     session = models.ForeignKey(Session, on_delete=models.SET_NULL, null=True, blank=True)
     orders = models.ManyToManyField(
         to='Shelf',
-        verbose_name='orders',
+        verbose_name=_('orders'),
         through='Order',
         related_name='orders',
         related_query_name="order",
@@ -150,14 +152,14 @@ class Basket(models.Model):
     def __str__(self) -> str:
         if self.user:
             if self.submitted:
-                return f'{self.user} {self.total_price()} submitted'
+                return f'{self.user} {self.total_price()} ' + _('submitted')
             else:
-                return f'{self.user} {self.total_price()} active'
+                return f'{self.user} {self.total_price()} ' + _('active')
         else:
             if self.submitted:
-                return f'anonymus {self.total_price()} submitted'
+                return _('anonymus') + f' {self.total_price()} ' + _('submitted')
             else:
-                return f'anonymus {self.total_price()} active'
+                return _('anonymus') + f' {self.total_price()} ' + _('active')
 
     def total_price(self):
         self_orders = Order.objects.filter(basket=self)
@@ -168,7 +170,7 @@ class Basket(models.Model):
 
 class Order(models.Model):
     """Order model
-    A many-to-many relation between ``Shelf`` and ``Bascket``.
+    A many-to-many relation between ``Shelf`` and ``Basket``.
     Containing number of ordered ``Product`` from the ``Shelf``,
     and applying a constraint to avoid having two separate order
     from the same shelf. It should be a single order with an
@@ -176,15 +178,15 @@ class Order(models.Model):
     """
     shelf = models.ForeignKey('Shelf', on_delete=models.CASCADE)
     basket = models.ForeignKey('Basket', on_delete=models.CASCADE)
-    number = models.PositiveBigIntegerField(verbose_name='number of products')
+    number = models.PositiveBigIntegerField(verbose_name=_('number of products'))
 
     class Meta:
         constraints = [
-            models.UniqueConstraint('shelf', 'basket', name='unique_shelf_bascket')
+            models.UniqueConstraint('shelf', 'basket', name='unique_shelf_basket')
         ]
     
     def __str__(self) -> str:
-        return f'{self.number} of {self.shelf.product}'
+        return n_('%(num)d %(product)s','%(num)d %(product)ss', 'num') % {'num': self.number, 'product': self.shelf.product}
 
     def total_price(self):
         return self.shelf.final_price * self.number
@@ -251,31 +253,31 @@ class SiteUser(AbstractBaseUser):
     """A custom user class with a profile picture.
     """
     email = models.EmailField(
-        verbose_name='email address',
+        verbose_name=_('email'),
         max_length=255,
         unique=True,
     )
     username = models.CharField(
         max_length=64,
-        verbose_name='user name',
+        verbose_name=_('username'),
     )
     first_name = models.CharField(
         max_length=64,
         null=True,
         blank=True,
-        verbose_name='first name',
+        verbose_name=_('first name'),
     )
     last_name = models.CharField(
         max_length=64,
         null=True,
         blank=True,
-        verbose_name='last name',
+        verbose_name=_('last name'),
     )
     profile = models.ImageField(
         upload_to=profile_images,
         null=True,
         blank=True,
-        verbose_name='profile',
+        verbose_name=_('profile'),
         default='default.png',
     )
 

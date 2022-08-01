@@ -1,8 +1,10 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load market_filters %}
 
 {% block page_title %}
-    جزییات قفسه
+    {% trans 'shelf details'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -18,24 +20,27 @@
         </svg>
     </div>
     <div class="list details">
-        <div class="list-head">جزییات قفسه</div>
+        <div class="list-head">{% trans 'shelf details'|title %}</div>
         <div class="list-body">
-            <div class="item">نام کالا: {{ shelf.product.name }}</div>
-            <div class="item">فروشگاه: {{ shelf.shop }}</div>
-            {% if shelf.discount_price %}
+            <div class="item"><span>{{ shelf|verbose:"product"|title }}:</span><span>{{ shelf.product }}</span></div>
+            <div class="item"><span>{{ shelf|verbose:"shop"|title }}:</span><span>{{ shelf.shop }}</span></div>
             <div class="item">
-                <span>"قیمت: "</span><span style="text-decoration:line-through ;">{{ shelf.price }}</span> -> {{ shelf.discount_price }}
+                <span>{{ shelf|verbose:"price"|title }}:</span>
+                {% if shelf.discount_price %}
+                <span>
+                    <span style="text-decoration:line-through ;">{{ shelf.price }}</span> -> <span>{{ shelf.discount_price }}</span>
+                </span>
+                {% else %}
+                <span>{{ shelf.price }}</span>
+                {% endif %}
             </div>
-            {% else %}
-            <div class="item">قیمت: {{ shelf.price }}</div>
-            {% endif %}
         </div>
         <div class="list-end"></div>
     </div>
     <form class="buy" action="" method="POST">
         {% csrf_token %}
         {{ form.number }}{{ form.errors.number }}
-        <input class="form-btn" type="submit" value="افزودن به سبد">
+        <input class="form-btn" type="submit" value="{% trans 'add to cart'|title %}">
     </form>
 </div>
 

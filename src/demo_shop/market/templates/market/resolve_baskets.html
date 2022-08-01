@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    رفع ابهام سبدها
+    {% trans 'resolve cart ambiguity'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -32,18 +33,18 @@
     <form dir="auto" action="" method="POST">
         {% csrf_token %}
         <div class="form-header">
-            سبد قبلی شما با این سبد همپوشانی دارد
+            {% trans 'Your previous cart conflicts this cart' %}
         </div>
         <input type="hidden" name="action" id="action">
         <div class="list-body">
             <div class="item">
-                <span>سبد قبلی</span>
+                <span>{% trans 'previous cart'|title %}</span>
                 {% for order in user_orders %}
                 <span>{{ order }}</span>
                 {% endfor %}
             </div>
             <div class="item">
-                <span>سبد ناشناس</span>
+                <span>{% trans 'anonymous cart'|title %}</span>
                 {% for order in anonymous_orders %}
                 <span>{{ order }}</span>
                 {% endfor %}
@@ -51,9 +52,9 @@
         </div>
         <div class="form-submit">
             <p>چه کنیم؟</p>
-            <input type="submit"class="form-btn font-size-2" onclick="add()" value="جمع دو سبد">
-            <input type="submit"class="form-btn font-size-2" onclick="user()" value="نادیده گرفتن سبد ناشناس">
-            <input type="submit"class="form-btn font-size-2" onclick="anonymous()" value="نادیده گرفتن سبد قبلی">
+            <input type="submit"class="form-btn font-size-2" onclick="add()" value="{% trans 'Add two carts' %}">
+            <input type="submit"class="form-btn font-size-2" onclick="user()" value="{% trans 'Ignore anonymous cart' %}">
+            <input type="submit"class="form-btn font-size-2" onclick="anonymous()" value="{% trans 'Ignore previous cart' %}">
         </div>
     </form>
 </div>

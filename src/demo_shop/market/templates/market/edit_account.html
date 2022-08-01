@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    ویرایش حساب
+    {% trans 'edit account'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -16,7 +17,11 @@
 {% block main %}
 <div id="main">
     <form dir="auto" method="POST" action="">
-        <div class="form-header font-size-2">ویرایش حساب {{ user.name }}</div>
+        <div class="form-header font-size-2">
+            {% blocktrans user_name=user.name %}
+            Edit {{ user_name }}'s Account
+            {% endblocktrans %}
+        </div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset>
@@ -28,8 +33,8 @@
         </div>
         <div class="form-submit">
             <div class="non-field-errors">{{ form.non_field_errors }}</div>
-            <input class="form-btn" class="font-size-2" type="submit" value="ثبت">
-            <p>منصرف شدید؟<a href="{% url 'market:my_account' %}"> حساب من</a></p>
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'confirm'|title %}">
+            <p>{% trans 'Are you dissuaded?' %}<a href="{% url 'market:my_account' %}"> {% trans 'my account'|title %}</a></p>
         </div>
     </form>
 </div>

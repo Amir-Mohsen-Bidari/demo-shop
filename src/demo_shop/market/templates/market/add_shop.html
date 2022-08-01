@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    افزودن فروشگاه
+    {% trans 'add shop'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -16,7 +17,7 @@
 {% block main %}
 <div id="main" class="pad-2">
     <form dir="auto" method="POST" action="">
-        <div class="form-header font-size-2">ثبت فروشگاه</div>
+        <div class="form-header font-size-2">{% trans 'register shop'|title %}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset>
@@ -28,8 +29,8 @@
         </div>
         <div class="form-submit">
             <div class="non-field-errors">{{ form.non_field_errors }}</div>
-            <input class="form-btn" class="font-size-2" type="submit" value="ثبت">
-            <p>قبلاً فروشگاه‌تان را ثبت کردید؟<a href="{% url 'market:my_shops' %}"> فروشگاه من</a></p>
+            <input class="form-btn" class="font-size-2" type="submit" value="{% translate 'register'|title %}">
+            <p>{% trans 'Already registered your shop?' %}<a href="{% url 'market:my_shops' %}"> {% trans 'my shop'|title %}</a></p>
         </div>
     </form>
 </div>

@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    ویرایش مالک
+    {% trans 'edit owner'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -17,12 +18,14 @@
 <div id="main" class="pad-2">
     <form dir="auto" method="POST" action="">
         <div class="form-header font-size-2">
-            ویرایش مالکیت {{ owner }} بر {{ shop }}
+            {% blocktrans owner=owner shop=shop%}
+            Edit {{ owner }}'s Ownership over {{ shop }}
+            {% endblocktrans %}
         </div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset>
-                <legend>اجازه‌ها</legend>
+                <legend>{% trans 'permissions'|title %}</legend>
                 <div class="field-container">{{ form.can_edit_shop }}{{ form.errors.can_edit_shop }}</div>
                 <div class="field-container">{{ form.can_open_shelf }}{{ form.errors.can_open_shelf }}</div>
                 <div class="field-container">{{ form.can_edit_shelf }}{{ form.errors.can_edit_shelf }}</div>
@@ -32,7 +35,7 @@
         </div>
         <div class="form-submit">
             <div class="non-field-errors">{{ form.non_field_errors }}</div>
-            <input class="form-btn" class="font-size-2" type="submit" value="ثبت">
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'confirm'|title %}">
         </div>
     </form>
 </div>

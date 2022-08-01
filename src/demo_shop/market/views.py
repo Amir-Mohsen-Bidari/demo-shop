@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.sessions.models import Session
+from django.utils.translation import gettext_lazy as _
 
 from .models import (
     Shelf,
@@ -50,8 +51,8 @@ def login_view(request):
                 login(request, user)
                 user_basket = Basket.objects.get_or_create(user=user, submitted=False)[0]
                 return redirect(reverse('market:resolve_baskets', kwargs={'anonymous_basket_id': anonymous_basket.pk, 'user_basket_id': user_basket.pk}))
-            form.add_error(None, 'ایمیل و رمز همخوانی ندارد')
-            form.add_error(None, 'به فارسی و انگلیسی بودن اعداد رمز دقت کنید')
+            form.add_error(None, _("Password and Email don't match"))
+            form.add_error(None, _('Pay attention to your keyboard layout and different number inputs'))
     return render(request,'market/login.html',context)
 
 def resolve_baskets_view(request, anonymous_basket_id, user_basket_id):

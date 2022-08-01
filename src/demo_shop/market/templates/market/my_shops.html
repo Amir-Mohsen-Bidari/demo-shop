@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    فروشگاه‌های من
+    {% trans 'my shops'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -19,7 +20,7 @@
 </style> -->
 <div id="main" class="pad-2">
     <div dir="auto" class="list">
-        <div class="list-head">فهرست فروشگاه‌های شما</div>
+        <div class="list-head">{% trans 'list of your shops'|title %}</div>
         <div class="list-body">
             {% for own in owns %}
             <div class="item">
@@ -29,19 +30,19 @@
                 </span>
                 <span>
                     {% if own.can_edit_shop %}
-                    <a href="{% url 'market:edit_shop' shop_id=own.shop.id %}">ویرایش</a>
+                    <a href="{% url 'market:edit_shop' shop_id=own.shop.id %}">{% trans 'edit'|title %}</a>
                     {% endif %}
                 </span>
                 <span>
                     {% if own.is_founder %}
-                    <a href="{% url 'market:delete_shop' shop_id=own.shop.id %}">حذف</a>
+                    <a href="{% url 'market:delete_shop' shop_id=own.shop.id %}">{% trans 'delete'|title %}</a>
                 {% endif %}
                 </span>
             </div>
             {% endfor %}
         </div>
         <div class="list-end">
-            <a href="{% url 'market:add_shop' %}">افزودن فروشگاهی جدید</a>
+            <a href="{% url 'market:add_shop' %}">{% trans 'add a new shop'|title %}</a>
         </div>
     </div>
 </div>
