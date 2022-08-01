@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    خطا
+    {% trans 'error'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -16,8 +17,10 @@
 {% block main %}
 <div id="main" class="pad-2">
     <h1>
-        Please select a shop from 'my_shop' page.<br/>
-        then choose 'add shelf' from there.
+        {% blocktrans %}
+        Please select a shop from 'My Shop' page.
+        then choose 'Add Shelf' from there.
+        {% endblocktrans %}
     </h1>
 </div>
 {% endblock main %}

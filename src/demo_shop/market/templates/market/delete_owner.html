@@ -1,8 +1,10 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load market_filters %}
 
 {% block page_title %}
-    حذف مالک
+    {% trans 'delete owner'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -16,35 +18,35 @@
 {% block main %}
 <div id="main" class="pad-2">
     <form dir="auto" method="POST" action="">
-        <div class="form-header font-size-2">سلب مالکیت</div>
+        <div class="form-header font-size-2">{% trans 'remove ownership'|title %}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset class="list-body">
-                <legend>اطلاعات مالکیت</legend>
-                <div class="item">مالک: {{ owner }}</div>
-                <div class="item">فروشگاه: {{ shop }}</div>
+                <legend>{% trans 'ownership information'|title %}</legend>
+                <div class="item">{{ own|verbose:"owner"|title }}: {{ owner }}</div>
+                <div class="item">{{ own|verbose:"shop"|title }}: {{ shop }}</div>
             </fieldset>
             <fieldset class="list-body">
-                <legend>اجازه‌ها</legend>
+                <legend>{% trans 'permissions'|title %}</legend>
                 {% if own.can_edit_shop %}
-                <div class="item">ویراش فروشگاه</div>
+                <div class="item">{{ own|verbose:"can_edit_shop"|title }}</div>
                 {% endif %}
                 {% if own.can_open_shelf %}
-                <div class="item">افزودن قفسه</div>
+                <div class="item">{{ own|verbose:"can_open_shelf"|title }}</div>
                 {% endif %}
                 {% if own.can_edit_shelf %}
-                <div class="item">ویرایش قفسه</div>
+                <div class="item">{{ own|verbose:"can_edit_shelf"|title }}</div>
                 {% endif %}
                 {% if own.can_delete_shelf %}
-                <div class="item">حذف قفسه</div>
+                <div class="item">{{ own|verbose:"can_delete_shelf"|title }}</div>
                 {% endif %}
                 {% if own.can_add_product %}
-                <div class="item">ثبت کالا</div>
+                <div class="item">{{ own|verbose:"can_add_product"|title }}</div>
                 {% endif %}
             </fieldset>
         </div>
         <div class="form-submit">
-            <input class="form-btn" class="font-size-2" type="submit" value="حذف">
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'delete'|title %}">
         </div>
     </form>
 </div>

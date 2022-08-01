@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    خرید
+    {% trans 'Buy' %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -17,12 +18,15 @@
 <div id="main" class="pad-2">
     <form dir="auto" action="" method="POST">
         <div class="form-header">
-            خرید فرضی {{ user }}
+            
+            {% blocktrans user=user %}
+            {{ user }}'s Imaginary Shopping
+            {% endblocktrans %}
         </div>
-        <div>مبلغ کل: {{ basket.total_price }}</div>
+        <div>{% trans 'ُTotal Sum' %}: {{ basket.total_price }}</div>
         {% csrf_token %}
         <div class="form-submit">
-            <input class="form-btn" class="font-size-2" type="submit" value="خرید">
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'Buy' %}">
         </div>
     </form>
 </div>

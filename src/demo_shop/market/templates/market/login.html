@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    ورود
+    {% trans 'login'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -18,7 +19,7 @@
 {% block main %}
 <div id="main">
     <form dir="auto" method="POST" action="">
-        <div class="form-header">ورود</div>
+        <div class="form-header">{% trans 'login'|title %}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset>
@@ -29,8 +30,8 @@
         </div>
         <div class="form-submit">
             <div class="non-field-errors">{{ form.non_field_errors }}</div>
-            <input class="form-btn" class="font-size-2" type="submit" value="ورود">
-            <p>آیا حساب ندارید؟<a href="{% url 'market:register' %}"> ثبت‌نام</a></p>
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'Login' %}">
+            <p>{% trans "Don't you have an account?" %}<a href="{% url 'market:register' %}"> {% trans 'sign-in'|title %}</a></p>
         </div>
     </form>
 </div>

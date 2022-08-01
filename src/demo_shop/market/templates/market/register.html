@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    ثبت‌نام
+    {% trans 'sign-in'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -18,18 +19,18 @@
 {% block main %}
 <div id="main">
     <form method="POST" action="">
-        <div class="form-header font-size-2">ثبت نام</div>
+        <div class="form-header font-size-2">{% trans 'sign-in'|title %}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset>
-                <legend>اطلاعات لازم</legend>
+                <legend>{% trans 'necessary information'|title %}</legend>
                 <div class="field-container">{{ form.email }}{{ form.errors.email }}</div>
                 <div class="field-container">{{ form.username }}{{ form.errors.username }}</div>
                 <div class="field-container">{{ form.password1 }}{{ form.errors.password1 }}</div>
                 <div class="field-container">{{ form.password2 }}{{ form.errors.password2 }}</div>
             </fieldset>
             <fieldset>
-                <legend>اطلاعات اختیاری</legend>
+                <legend>{% trans 'optional information'|title %}</legend>
                 <div class="field-container">{{ form.profile }}{{ form.errors.profile }}</div>
                 <div class="field-container">{{ form.first_name }}{{ form.errors.first_name }}</div>
                 <div class="field-container">{{ form.last_name }}{{ form.errors.last_name }}</div>
@@ -37,8 +38,8 @@
         </div>
         <div class="form-submit">
             <div class="non-field-errors">{{ form.non_field_errors }}</div>
-            <input class="form-btn" class="font-size-2" type="submit" value="ثبت‌نام">
-            <p>قبلاً ثبت‌نام کردید؟<a href="{% url 'market:login' %}"> ورود</a></p>
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'sign-in'|title %}">
+            <p>{% trans 'Already signed in?' %}<a href="{% url 'market:login' %}"> {% trans 'login'|title %}</a></p>
         </div>
     </form>
 </div>

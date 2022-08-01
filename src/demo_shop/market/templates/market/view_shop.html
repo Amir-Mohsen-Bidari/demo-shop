@@ -1,8 +1,9 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block page_title %}
-    فروشگاه من
+    {% trans 'my shop'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -19,35 +20,35 @@
         <div class="list-head">{{ shop.name }}</div>
         {% if perm.can_edit_shop %}
         <div class="list-end">
-            <a href="{% url 'market:edit_shop' shop_id=shop.id %}">ویرایش</a>
+            <a href="{% url 'market:edit_shop' shop_id=shop.id %}">{% trans 'edit'|title %}</a>
         </div>
         {% endif %}
     </div>
     <div class="list mar-3">
-        <div class="list-head">مالکان</div>
+        <div class="list-head">{% trans 'owners'|title %}</div>
         <div class="list-body">
             {% for own in owns %}
             <div class="item">
                 <span>{{ own.owner }}</span>
                 {% if own.is_founder %}
-                    <span>بنیانگذار</span>
+                    <span>{% trans 'founder'|title %}</span>
                 {% endif %}
                 {% if perm.can_edit_shop and not own.is_founder %}
-                    <a href="{% url 'market:edit_owner' ownership_id=own.id %}">ویرایش</a>
-                    <a href="{% url 'market:delete_owner' ownership_id=own.id %}">حذف</a>
+                    <a href="{% url 'market:edit_owner' ownership_id=own.id %}">{% trans 'edit'|title %}</a>
+                    <a href="{% url 'market:delete_owner' ownership_id=own.id %}">{% trans 'delete'|title %}</a>
                 {% endif %}
             </div>
             {% endfor %}
         </div>
         <div class="list-end">
             {% if perm.can_edit_shop %}
-            <a href="{% url 'market:add_owner' shop_id=shop.id %}">افزودن مالک</a>
+            <a href="{% url 'market:add_owner' shop_id=shop.id %}">{% trans 'add owner'|title %}</a>
             {% endif %}
         </div>
     </div>
     <div class="list mar-3">
         <div class="list-head">
-            قفسه‌ها
+            {% trans 'shelves'|title %}
         </div>
         <div class="list-body">
             {% for shelf in shelves %}
@@ -60,20 +61,20 @@
                 {% endif %}
                 
                 {% if perm.can_edit_shelf %}
-                    <a href="{% url 'market:edit_shelf' shelf_id=shelf.id %}">ویرایش</a>
+                    <a href="{% url 'market:edit_shelf' shelf_id=shelf.id %}">{% trans 'edit'|title %}</a>
                 {% endif %}
                 {% if perm.can_delete_shelf %}
-                    <a href="{% url 'market:delete_shelf' shelf_id=shelf.id %}">حذف</a>
+                    <a href="{% url 'market:delete_shelf' shelf_id=shelf.id %}">{% trans 'delete'|title %}</a>
                 {% endif %}
             </div>
             {% endfor %}
         </div>
         <div class="list-end">
             {% if perm.can_open_shelf %}
-            <a href="{% url 'market:add_shelf' shop_id=shop.id %}">افزودن قفسه</a>
+            <a href="{% url 'market:add_shelf' shop_id=shop.id %}">{% trans 'add shelf'|title %}</a>
             {% endif %}
             {% if perm.can_add_product %}
-            <a href="{% url 'market:add_product' %}">درخواست ثبت کالا</a>
+            <a href="{% url 'market:add_product' %}">{% trans 'product registration request'|title %}</a>
             {% endif %}
         </div>
     </div>

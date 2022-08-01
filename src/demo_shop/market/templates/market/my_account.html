@@ -1,8 +1,10 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load market_filters %}
 
 {% block page_title %}
-    حساب من
+    {% trans 'my account' %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -18,32 +20,32 @@
 {% block main %}
 <div dir="rtl" id="main" class="pad-2">
     <div class="list mar-3">
-        <div class="list-head">برگه اطلاعات شخصی</div>
+        <div class="list-head">{% trans 'personal information'|title %}</div>
         <div class="list-body">
             <div class="item">
-                ایمیل: {{ user.email }}
+                {{ user|verbose:"email"|title }}: {{ user.email }}
             </div>
             <div class="item">
-                نام کاربری: {{ user.username }}
+                {{ user|verbose:"username"|title }}: {{ user.username }}
             </div>
             <div class="item">
-                نام: {{ user.first_name }}
+                {{ user|verbose:"first_name"|title }}: {{ user.first_name }}
             </div>
             <div class="item">
-                نام خانوادگی: {{ user.last_name }}
+                {{ user|verbose:"last_name"|title }}: {{ user.last_name }}
             </div>
             <div class="item">
-                نمایه: <div class="icon-medium"><img src="{{ user.profile.url }}"></div>
+                {{ user|verbose:"profile"|title }}: <div class="icon-medium"><img src="{{ user.profile.url }}"></div>
             </div>
         </div>
         <div class="list-end">
-            <a href="{% url 'market:edit_account' %}">ویرایش حساب</a>
-            <a href="{% url 'market:logout' %}">خروج از حساب</a>
+            <a href="{% url 'market:edit_account' %}">{% trans 'edit account'|title %}</a>
+            <a href="{% url 'market:logout' %}">{% trans 'logout'|title %}</a>
         </div>
     </div>
     <div class="list mar-3">
         <div class="list-head">
-            سبدها
+            {% trans 'carts'|title %}
         </div>
         <div class="list-body">
         {% for basket in baskets %}
@@ -54,22 +56,21 @@
     </div>
     <div class="list mar-3">
         <div class="list-head">
-            سبد فعلی
+            {% trans 'current cart'|title %}
         </div>
         <div class="list-body">
             {% for order in active_orders %}
                 <div class="item">
-                    <span>{{ order.number }}عدد {{ order.shelf.product }}
-                    </span>
-                    <span>قیمت: {{ order.shelf.final_price }}</span>
-                    <span>فروشگاه: {{ order.shelf.shop }}</span>
-                    <span>مبلغ: {{ order.total_price }}</span>
+                    <span>{{ order }}</span>
+                    <span>{{ order.shelf|verbose:"price"|title }}: {{ order.shelf.final_price }}</span>
+                    <span>{{ order.shelf|verbose:"shop"|title }}: {{ order.shelf.shop }}</span>
+                    <span>{% trans 'sum'|title %}: {{ order.total_price }}</span>
                 </div>
             {% endfor %}
                 
         </div>
         <div class="list-end">
-            <a href="{% url 'market:my_basket' %}">سبد خرید</a>
+            <a href="{% url 'market:my_basket' %}">{% trans 'cart'|title %}</a>
         </div>
     </div>
     <div>

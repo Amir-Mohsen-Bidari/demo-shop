@@ -1,8 +1,10 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load market_filters %}
 
 {% block page_title %}
-    حذف فروشگاه
+    {% trans 'delete shop'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -16,19 +18,19 @@
 {% block main %}
 <div id="main" class="pad-2">
     <form dir="auto" method="POST" action="">
-        <div class="form-header font-size-2">بستن فروشگاه</div>
+        <div class="form-header font-size-2">{% trans 'close shop'|title %}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset class="list-body">
-                <legend>اطلاعات فروشگاه</legend>
-                <div class="item">نام: {{ shop.name }}</div>
-                <div class="item">ایمیل: {{ shop.email }}</div>
-                <div class="item">شرح: {{ shop.description }}</div>
-                <div class="item">نماد: <span class="icon-small"><img src="{{ shop.logo.url }}"/></span></div>
+                <legend>{% trans 'shop information'|title %}</legend>
+                <div class="item">{{ shop|verbose:"name"|title }}: {{ shop.name }}</div>
+                <div class="item">{{ shop|verbose:"email"|title }}: {{ shop.email }}</div>
+                <div class="item">{{ shop|verbose:"description"|title }}: {{ shop.description }}</div>
+                <div class="item">{{shop|verbose:"logo"|title }}: <span class="icon-small"><img src="{{ shop.logo.url }}"/></span></div>
             </fieldset>
         </div>
         <div class="form-submit">
-            <input class="form-btn" class="font-size-2" type="submit" value="حذف">
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'delete'|title %}">
         </div>
     </form>
 </div>

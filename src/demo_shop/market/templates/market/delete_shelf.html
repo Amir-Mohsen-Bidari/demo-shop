@@ -1,8 +1,10 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load market_filters %}
 
 {% block page_title %}
-    حذف قفسه
+    {% trans 'delete shelf'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -16,22 +18,22 @@
 {% block main %}
 <div id="main" class="pad-2">
     <form dir="auto" method="POST" action="">
-        <div class="form-header font-size-2">بستن قفسه</div>
+        <div class="form-header font-size-2">{% trans 'close shelf'|title %}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset class="list-body">
-                <legend>اطلاعات قفسه</legend>
-                <div class="item">کالا: {{ shelf.product }}</div>
-                <div class="item">فروشگاه: {{ shelf.shop }}</div>
-                <div class="item">قیمت: {{ shelf.discount_price }}</div>
+                <legend>{% trans 'shelf information'|title %}</legend>
+                <div class="item">{{ shelf|verbose:"product"|title }}: {{ shelf.product }}</div>
+                <div class="item">{{ shelf|verbose:"shop"|title }}: {{ shelf.shop }}</div>
+                <div class="item">{{ shelf|verbose:"price"|title }}: {{ shelf.price }}</div>
                 {% if shelf.discount_price %}
-                <div class="item">قیمت: {{ shelf.discount_price }}</div>
+                <div class="item">{{ shelf|verbose:"discount_price"|title }}: {{ shelf.discount_price }}</div>
                 {% endif %}
-                <div class="item">تعداد: {{ shelf.remaining }}</div>
+                <div class="item">{{ shelf|verbose:"remaining"|title }}: {{ shelf.remaining }}</div>
             </fieldset>
         </div>
         <div class="form-submit">
-            <input class="form-btn" class="font-size-2" type="submit" value="حذف">
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'delete'|title %}">
         </div>
 
     </form>

@@ -1,8 +1,10 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load market_filters %}
 
 {% block page_title %}
-    ویرایش قفسه
+    {% trans 'edit shelf'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -16,13 +18,13 @@
 {% block main %}
 <div id="main" class="pad-2">
     <form dir="auto" method="POST" action="">
-        <div class="form-header font-size-2">ویرایش قفسه</div>
+        <div class="form-header font-size-2">{% trans 'edit shelf'|title %}</div>
         <div class="form-inputs">
             {% csrf_token %}
             <fieldset class="list-body">
-                <legend>قفسه</legend>
-                <div class="item">کالا: {{ shelf.product }}</div>
-                <div class="item">فروشگاه: {{ shelf.shop }}</div>
+                <legend>{% trans 'shelf information'|title %}</legend>
+                <div class="item">{{ shelf|verbose:"product"|title }}: {{ shelf.product }}</div>
+                <div class="item">{{ shelf|verbose:"shop"|title }}: {{ shelf.shop }}</div>
             </fieldset>
             <fieldset>
                 <div class="field-container">{{ form.price }}{{ form.errors.price }}</div>
@@ -32,7 +34,7 @@
         </div>
         <div class="form-submit">
             <div class="non-field-errors">{{ form.non_field_errors }}</div>
-            <input class="form-btn" class="font-size-2" type="submit" value="ثبت">
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'confirm'|title %}">
         </div>
 
     </form>

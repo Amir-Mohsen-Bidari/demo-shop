@@ -1,8 +1,10 @@
 {% extends 'market/base.html' %}
 {% load static %}
+{% load i18n %}
+{% load market_filters %}
 
 {% block page_title %}
-    سبد خرید
+    {% trans 'cart'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -18,22 +20,24 @@
     <form dir="auto" action="" method="POST">
         {% csrf_token %}
         <div class="form-header">
-            سبد خرید {{ user }}
+            {% blocktrans with user=user%}
+            {{ user }}s cart
+            {% endblocktrans %}
         </div>
         <div class="list-body">
             {% for order in orders %}
             <div class="item">
-                <span>کالا: {{ order.shelf.product.name }}</span>
-                <span>فروشگاه: {{ order.shelf.shop.name }}</span>
-                <span>قیمت: {{ order.shelf.price }}</span>
-                <span>تعداد: {{ order.number }}</span>
-                <span>مبلغ: {{ order.total_price }}</span>
+                <span>{{ order.shelf|verbose:"product"|title }}: {{ order.shelf.product }}</span>
+                <span>{{ order.shelf|verbose:"shop"|title }}: {{ order.shelf.shop }}</span>
+                <span>{{ order.shelf|verbose:"price"|title }}: {{ order.shelf.final_price }}</span>
+                <span>{{ order|verbose:"number"|title }}: {{ order.number }}</span>
+                <span>{% trans "total price"|title %}: {{ order.total_price }}</span>
             </div>
             {% endfor %}
-            <div>مبلغ کل: {{ basket.total_price }}</div>
+            <div>{% trans 'sum'|title %}: {{ basket.total_price }}</div>
         </div>
         <div class="form-submit">
-            <input class="form-btn" class="font-size-2" type="submit" value="خرید">
+            <input class="form-btn" class="font-size-2" type="submit" value="{% trans 'buy'|title %}">
         </div>
     </form>
 </div>
