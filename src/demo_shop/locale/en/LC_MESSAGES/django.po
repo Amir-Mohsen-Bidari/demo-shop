@@ -1,0 +1,631 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-01 22:28+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\demo_shop\settings.py:124
+msgid "Persian"
+msgstr ""
+
+#: .\demo_shop\settings.py:125
+msgid "English"
+msgstr ""
+
+#: .\market\forms.py:24 .\market\forms.py:77
+msgid "Enter your password"
+msgstr ""
+
+#: .\market\forms.py:25
+msgid "Repeat your password"
+msgstr ""
+
+#: .\market\forms.py:26 .\market\forms.py:76
+msgid "Enter your email"
+msgstr ""
+
+#: .\market\forms.py:27 .\market\forms.py:61
+msgid "Username"
+msgstr ""
+
+#: .\market\forms.py:28
+msgid "Fisrt name"
+msgstr ""
+
+#: .\market\forms.py:29 .\market\forms.py:63
+msgid "Last name"
+msgstr ""
+
+#: .\market\forms.py:47
+msgid "Passwords don't match"
+msgstr ""
+
+#: .\market\forms.py:62
+msgid "First name"
+msgstr ""
+
+#: .\market\forms.py:81
+msgid "Enter your shop's email"
+msgstr ""
+
+#: .\market\forms.py:82 .\market\forms.py:97
+msgid "Enter your shop's name"
+msgstr ""
+
+#: .\market\forms.py:83
+msgid "A brief desciption of your shop"
+msgstr ""
+
+#: .\market\forms.py:98
+msgid "A brief desciption about your shop"
+msgstr ""
+
+#: .\market\forms.py:113 .\market\forms.py:143
+msgid "Price"
+msgstr ""
+
+#: .\market\forms.py:114 .\market\forms.py:144
+msgid "Discount price (not necessary)"
+msgstr ""
+
+#: .\market\forms.py:115 .\market\forms.py:145
+msgid "Remaining (we don't sell more than this number)"
+msgstr ""
+
+#: .\market\forms.py:132
+msgid "Already have a shelf for this product"
+msgstr ""
+
+#: .\market\forms.py:138
+msgid "No such shop"
+msgstr ""
+
+#: .\market\forms.py:157
+msgid "Product's name"
+msgstr ""
+
+#: .\market\forms.py:158
+msgid "A brief description about product"
+msgstr ""
+
+#: .\market\forms.py:170 .\market\forms.py:202
+msgid "Edit Shop"
+msgstr ""
+
+#: .\market\forms.py:171 .\market\forms.py:203
+msgid "Add Shelf"
+msgstr ""
+
+#: .\market\forms.py:172 .\market\forms.py:204
+msgid "Edit Shelf"
+msgstr ""
+
+#: .\market\forms.py:173 .\market\forms.py:205
+msgid "Delete Shelf"
+msgstr ""
+
+#: .\market\forms.py:174 .\market\forms.py:206
+msgid "Product Registration Request"
+msgstr ""
+
+#: .\market\forms.py:197
+msgid "Already owns this shop"
+msgstr ""
+
+#: .\market\models.py:26
+msgid "product name"
+msgstr ""
+
+#: .\market\models.py:29 .\market\models.py:47
+msgid "description"
+msgstr ""
+
+#: .\market\models.py:44
+msgid "shop name"
+msgstr ""
+
+#: .\market\models.py:52
+msgid "email address"
+msgstr ""
+
+#: .\market\models.py:59
+msgid "logo"
+msgstr ""
+
+#: .\market\models.py:64 .\market\templates\market\view_shop.html:28
+msgid "owners"
+msgstr ""
+
+#: .\market\models.py:71
+msgid "products"
+msgstr ""
+
+#: .\market\models.py:89 .\market\templates\market\view_shop.html:34
+msgid "founder"
+msgstr ""
+
+#: .\market\models.py:90 .\market\templates\market\edit_shop.html:6
+msgid "edit shop"
+msgstr ""
+
+#: .\market\models.py:91
+msgid "open shelf"
+msgstr ""
+
+#: .\market\models.py:92 .\market\templates\market\edit_shelf.html:7
+#: .\market\templates\market\edit_shelf.html:21
+msgid "edit shelf"
+msgstr ""
+
+#: .\market\models.py:93 .\market\templates\market\delete_shelf.html:7
+msgid "delete shelf"
+msgstr ""
+
+#: .\market\models.py:94 .\market\templates\market\add_product.html:20
+#: .\market\templates\market\view_shop.html:77
+msgid "product registration request"
+msgstr ""
+
+#: .\market\models.py:110
+msgid "product"
+msgstr ""
+
+#: .\market\models.py:111
+msgid "shop"
+msgstr ""
+
+#: .\market\models.py:112
+msgid "price"
+msgstr ""
+
+#: .\market\models.py:118
+msgid "remaining"
+msgstr ""
+
+#: .\market\models.py:119
+msgid "opening date"
+msgstr ""
+
+#: .\market\models.py:120
+msgid "last edit"
+msgstr ""
+
+#: .\market\models.py:135
+msgid "user"
+msgstr ""
+
+#: .\market\models.py:139
+msgid "orders"
+msgstr ""
+
+#: .\market\models.py:155 .\market\models.py:160
+msgid "submitted"
+msgstr ""
+
+#: .\market\models.py:157 .\market\models.py:162
+msgid "active"
+msgstr ""
+
+#: .\market\models.py:160 .\market\models.py:162
+msgid "anonymus"
+msgstr ""
+
+#: .\market\models.py:181
+msgid "number of products"
+msgstr ""
+
+#: .\market\models.py:189
+#, python-format
+msgid "%(num)d %(product)s"
+msgid_plural "%(num)d %(product)ss"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\market\models.py:256
+msgid "email"
+msgstr ""
+
+#: .\market\models.py:262
+msgid "username"
+msgstr ""
+
+#: .\market\models.py:268
+msgid "first name"
+msgstr ""
+
+#: .\market\models.py:274
+msgid "last name"
+msgstr ""
+
+#: .\market\models.py:280
+msgid "profile"
+msgstr ""
+
+#: .\market\templates\market\add_owner.html:6
+#: .\market\templates\market\view_shop.html:45
+msgid "add owner"
+msgstr ""
+
+#: .\market\templates\market\add_owner.html:21
+#, python-format
+msgid ""
+"\n"
+"                Add owner for %(shop_name)s shop\n"
+"            "
+msgstr ""
+
+#: .\market\templates\market\add_owner.html:28
+msgid "choose a user"
+msgstr ""
+
+#: .\market\templates\market\add_owner.html:32
+#: .\market\templates\market\delete_owner.html:30
+#: .\market\templates\market\edit_owner.html:28
+msgid "permissions"
+msgstr ""
+
+#: .\market\templates\market\add_owner.html:42
+#: .\market\templates\market\add_shelf.html:36
+#: .\market\templates\market\add_shop.html:32
+msgid "register"
+msgstr ""
+
+#: .\market\templates\market\add_product.html:6
+msgid "add product"
+msgstr ""
+
+#: .\market\templates\market\add_product.html:30
+msgid "request"
+msgstr ""
+
+#: .\market\templates\market\add_shelf.html:6
+#: .\market\templates\market\view_shop.html:74
+msgid "add shelf"
+msgstr ""
+
+#: .\market\templates\market\add_shelf.html:21
+#, python-format
+msgid ""
+"\n"
+"        Add shelf to %(shop_name)s shop\n"
+"        "
+msgstr ""
+
+#: .\market\templates\market\add_shelf_no_shop.html:6
+#: .\market\templates\market\edit_shelf_no_shelf.html:6
+msgid "error"
+msgstr ""
+
+#: .\market\templates\market\add_shelf_no_shop.html:20
+msgid ""
+"\n"
+"        Please select a shop from 'My Shop' page.\n"
+"        then choose 'Add Shelf' from there.\n"
+"        "
+msgstr ""
+
+#: .\market\templates\market\add_shop.html:6
+msgid "add shop"
+msgstr ""
+
+#: .\market\templates\market\add_shop.html:20
+msgid "register shop"
+msgstr ""
+
+#: .\market\templates\market\add_shop.html:33
+msgid "Already registered your shop?"
+msgstr ""
+
+#: .\market\templates\market\add_shop.html:33
+#: .\market\templates\market\base.html:140
+#: .\market\templates\market\view_shop.html:6
+msgid "my shop"
+msgstr ""
+
+#: .\market\templates\market\base.html:70
+msgid "here is a side-bar with bunch of filter options"
+msgstr ""
+
+#: .\market\templates\market\base.html:85
+#: .\market\templates\market\edit_account.html:37
+#: .\market\templates\market\my_account.html:7
+msgid "my account"
+msgstr ""
+
+#: .\market\templates\market\base.html:102
+msgid "login | sign-in"
+msgstr ""
+
+#: .\market\templates\market\base.html:121
+#: .\market\templates\market\my_account.html:73
+#: .\market\templates\market\my_basket.html:7
+msgid "cart"
+msgstr ""
+
+#: .\market\templates\market\base.html:151
+#: .\market\templates\market\my_account.html:43
+msgid "logout"
+msgstr ""
+
+#: .\market\templates\market\base.html:418
+msgid "here is the bottom-bar with usefull links like e-namad and others."
+msgstr ""
+
+#: .\market\templates\market\delete_owner.html:7
+msgid "delete owner"
+msgstr ""
+
+#: .\market\templates\market\delete_owner.html:21
+msgid "remove ownership"
+msgstr ""
+
+#: .\market\templates\market\delete_owner.html:25
+msgid "ownership information"
+msgstr ""
+
+#: .\market\templates\market\delete_owner.html:49
+#: .\market\templates\market\delete_shelf.html:36
+#: .\market\templates\market\delete_shop.html:33
+#: .\market\templates\market\my_shops.html:38
+#: .\market\templates\market\view_shop.html:38
+#: .\market\templates\market\view_shop.html:67
+msgid "delete"
+msgstr ""
+
+#: .\market\templates\market\delete_shelf.html:21
+msgid "close shelf"
+msgstr ""
+
+#: .\market\templates\market\delete_shelf.html:25
+#: .\market\templates\market\edit_shelf.html:25
+msgid "shelf information"
+msgstr ""
+
+#: .\market\templates\market\delete_shop.html:7
+msgid "delete shop"
+msgstr ""
+
+#: .\market\templates\market\delete_shop.html:21
+msgid "close shop"
+msgstr ""
+
+#: .\market\templates\market\delete_shop.html:25
+msgid "shop information"
+msgstr ""
+
+#: .\market\templates\market\dummy_payment.html:6
+#: .\market\templates\market\dummy_payment.html:29
+msgid "Buy"
+msgstr ""
+
+#: .\market\templates\market\dummy_payment.html:22
+#, python-format
+msgid ""
+"\n"
+"            %(user)s's Imaginary Shopping\n"
+"            "
+msgstr ""
+
+#: .\market\templates\market\dummy_payment.html:26
+msgid "ُTotal Sum"
+msgstr ""
+
+#: .\market\templates\market\edit_account.html:6
+#: .\market\templates\market\my_account.html:42
+msgid "edit account"
+msgstr ""
+
+#: .\market\templates\market\edit_account.html:21
+#, python-format
+msgid ""
+"\n"
+"            Edit %(user_name)s's Account\n"
+"            "
+msgstr ""
+
+#: .\market\templates\market\edit_account.html:36
+#: .\market\templates\market\edit_owner.html:38
+#: .\market\templates\market\edit_shelf.html:37
+#: .\market\templates\market\edit_shop.html:35
+msgid "confirm"
+msgstr ""
+
+#: .\market\templates\market\edit_account.html:37
+msgid "Are you dissuaded?"
+msgstr ""
+
+#: .\market\templates\market\edit_owner.html:6
+msgid "edit owner"
+msgstr ""
+
+#: .\market\templates\market\edit_owner.html:21
+#, python-format
+msgid ""
+"\n"
+"            Edit %(owner)s's Ownership over %(shop)s\n"
+"            "
+msgstr ""
+
+#: .\market\templates\market\edit_shelf_no_shelf.html:20
+msgid ""
+"\n"
+"        Please select a shop from 'my_shop' page.\n"
+"        then choose 'add shelf' from there.\n"
+"        "
+msgstr ""
+
+#: .\market\templates\market\edit_shop.html:21
+#, python-format
+msgid ""
+"\n"
+"            Edit %(shop_name)s Shop\n"
+"            "
+msgstr ""
+
+#: .\market\templates\market\home.html:6
+msgid "home"
+msgstr ""
+
+#: .\market\templates\market\login.html:6
+#: .\market\templates\market\login.html:22
+#: .\market\templates\market\register.html:42
+msgid "login"
+msgstr ""
+
+#: .\market\templates\market\login.html:33
+msgid "Login"
+msgstr ""
+
+#: .\market\templates\market\login.html:34
+msgid "Don't you have an account?"
+msgstr ""
+
+#: .\market\templates\market\login.html:34
+#: .\market\templates\market\register.html:6
+#: .\market\templates\market\register.html:22
+#: .\market\templates\market\register.html:41
+msgid "sign-in"
+msgstr ""
+
+#: .\market\templates\market\my_account.html:23
+msgid "personal information"
+msgstr ""
+
+#: .\market\templates\market\my_account.html:48
+msgid "carts"
+msgstr ""
+
+#: .\market\templates\market\my_account.html:59
+msgid "current cart"
+msgstr ""
+
+#: .\market\templates\market\my_account.html:67
+#: .\market\templates\market\my_basket.html:37
+msgid "sum"
+msgstr ""
+
+#: .\market\templates\market\my_basket.html:23
+#, python-format
+msgid ""
+"\n"
+"            %(user)ss cart\n"
+"            "
+msgstr ""
+
+#: .\market\templates\market\my_basket.html:34
+msgid "total price"
+msgstr ""
+
+#: .\market\templates\market\my_basket.html:40
+msgid "buy"
+msgstr ""
+
+#: .\market\templates\market\my_shops.html:6
+msgid "my shops"
+msgstr ""
+
+#: .\market\templates\market\my_shops.html:23
+msgid "list of your shops"
+msgstr ""
+
+#: .\market\templates\market\my_shops.html:33
+#: .\market\templates\market\view_shop.html:23
+#: .\market\templates\market\view_shop.html:37
+#: .\market\templates\market\view_shop.html:64
+msgid "edit"
+msgstr ""
+
+#: .\market\templates\market\my_shops.html:45
+msgid "add a new shop"
+msgstr ""
+
+#: .\market\templates\market\register.html:26
+msgid "necessary information"
+msgstr ""
+
+#: .\market\templates\market\register.html:33
+msgid "optional information"
+msgstr ""
+
+#: .\market\templates\market\register.html:42
+msgid "Already signed in?"
+msgstr ""
+
+#: .\market\templates\market\resolve_baskets.html:6
+msgid "resolve cart ambiguity"
+msgstr ""
+
+#: .\market\templates\market\resolve_baskets.html:36
+msgid "Your previous cart conflicts this cart"
+msgstr ""
+
+#: .\market\templates\market\resolve_baskets.html:41
+msgid "previous cart"
+msgstr ""
+
+#: .\market\templates\market\resolve_baskets.html:47
+msgid "anonymous cart"
+msgstr ""
+
+#: .\market\templates\market\resolve_baskets.html:55
+msgid "Add two carts"
+msgstr ""
+
+#: .\market\templates\market\resolve_baskets.html:56
+msgid "Ignore anonymous cart"
+msgstr ""
+
+#: .\market\templates\market\resolve_baskets.html:57
+msgid "Ignore previous cart"
+msgstr ""
+
+#: .\market\templates\market\shelf_details.html:7
+#: .\market\templates\market\shelf_details.html:23
+msgid "shelf details"
+msgstr ""
+
+#: .\market\templates\market\shelf_details.html:43
+msgid "add to cart"
+msgstr ""
+
+#: .\market\templates\market\view_shop.html:51
+msgid "shelves"
+msgstr ""
+
+#: .\market\templates\market\widgets\image.html:4
+msgid "select image"
+msgstr ""
+
+#: .\market\templates\market\widgets\image.html:7
+msgid "No image is chosen"
+msgstr ""
+
+#: .\market\views.py:54
+msgid "Password and Email don't match"
+msgstr ""
+
+#: .\market\views.py:55
+msgid "Pay attention to your keyboard layout and different number inputs"
+msgstr ""
+
+#: .\market\widgets.py:21
+msgid "Should option be active"
+msgstr ""
+
+#: .\market\widgets.py:39
+msgid "Your Choice"
+msgstr ""

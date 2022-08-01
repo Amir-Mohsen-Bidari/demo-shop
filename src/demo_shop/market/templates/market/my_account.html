@@ -4,7 +4,7 @@
 {% load market_filters %}
 
 {% block page_title %}
-    {% trans 'my account' %}
+    {% trans 'my account'|title %}
 {% endblock page_title %}
 
 {% block stylesheet %}
@@ -18,7 +18,7 @@
 {% block account_option %}{% endblock account_option %}
 
 {% block main %}
-<div dir="rtl" id="main" class="pad-2">
+<div dir="auto" id="main" class="pad-2">
     <div class="list mar-3">
         <div class="list-head">{% trans 'personal information'|title %}</div>
         <div class="list-body">

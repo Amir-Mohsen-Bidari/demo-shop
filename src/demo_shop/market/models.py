@@ -6,7 +6,7 @@ from django.contrib.auth.models import (
 )
 from django.contrib.sessions.models import Session
 from django.utils.translation import gettext_lazy as _
-from django.utils.translation import ngettext_lazy as n_
+from django.utils.translation import ngettext_lazy
 
 
 def shop_images(instance, filename):
@@ -185,8 +185,8 @@ class Order(models.Model):
             models.UniqueConstraint('shelf', 'basket', name='unique_shelf_basket')
         ]
     
-    def __str__(self) -> str:
-        return n_('%(num)d %(product)s','%(num)d %(product)ss', 'num') % {'num': self.number, 'product': self.shelf.product}
+    def __str__(self):
+        return ngettext_lazy('%(num)d %(product)s','%(num)d %(product)ss', 'num') % {'num': self.number, 'product': self.shelf.product.name,}
 
     def total_price(self):
         return self.shelf.final_price * self.number

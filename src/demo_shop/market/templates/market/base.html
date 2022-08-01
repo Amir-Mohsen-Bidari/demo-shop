@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load market_filters %}
 <!-- به نام خدا -->
 <!DOCTYPE html>
 <html>
@@ -34,6 +35,16 @@
             <div class="font-size-3"><span id="site-name" class="font-size-4 bold">Demo Shop</span> site</div>
         </a>
         {% endblock logo_pack %}
+        
+        {% block select_lang %}
+        {% get_available_languages as langs %}
+        <div class="select-lang mar-3">
+            {% for lang_code, lang_name in langs %}
+            <a href="/{{ lang_code }}{{ request.path|base_url }}">{{ lang_name|title }}</a>
+            {% endfor %}
+        </div>
+        {% endblock select_lang %}
+
         
         {% block search_box %}
         <div id="search-box" class="bor-rad-3 mar-0">
