@@ -13,6 +13,9 @@
 .select-input:focus {
     background-color: var(--color-ng2);
 }
+.select-title {
+    margin-inline-end: 0.5em;
+}
 .select-title,
 .select-selected {
     white-space: nowrap;
