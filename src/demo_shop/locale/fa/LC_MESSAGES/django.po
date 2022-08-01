@@ -1,0 +1,656 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-01 22:28+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\demo_shop\settings.py:124
+msgid "Persian"
+msgstr "فارسی"
+
+#: .\demo_shop\settings.py:125
+msgid "English"
+msgstr "انگلیسی"
+
+#: .\market\forms.py:24 .\market\forms.py:77
+msgid "Enter your password"
+msgstr "رمز خود را وارد نمایید"
+
+#: .\market\forms.py:25
+msgid "Repeat your password"
+msgstr "رمز خود را تکرار نمایید"
+
+#: .\market\forms.py:26 .\market\forms.py:76
+msgid "Enter your email"
+msgstr "ایمیل خود را وارد نمایید"
+
+#: .\market\forms.py:27 .\market\forms.py:61
+msgid "Username"
+msgstr "نام کاربری"
+
+#: .\market\forms.py:28
+msgid "Fisrt name"
+msgstr "نام"
+
+#: .\market\forms.py:29 .\market\forms.py:63
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+#: .\market\forms.py:47
+msgid "Passwords don't match"
+msgstr "رمزها مطابقت ندارند"
+
+#: .\market\forms.py:62
+msgid "First name"
+msgstr "نام"
+
+#: .\market\forms.py:81
+msgid "Enter your shop's email"
+msgstr "ایمیل فروشگاه خود را وارد نمایید"
+
+#: .\market\forms.py:82 .\market\forms.py:97
+msgid "Enter your shop's name"
+msgstr "نام فروشگاه خود را وارد نمایید"
+
+#: .\market\forms.py:83
+msgid "A brief desciption of your shop"
+msgstr "توضیحی مختصر درباره‌ی فروشگاهتان"
+
+#: .\market\forms.py:98
+msgid "A brief desciption about your shop"
+msgstr "توضیحی مختصر درباره‌ی فروشگاهتان"
+
+#: .\market\forms.py:113 .\market\forms.py:143
+msgid "Price"
+msgstr "قیمت"
+
+#: .\market\forms.py:114 .\market\forms.py:144
+msgid "Discount price (not necessary)"
+msgstr "قیمت تخفیفی (لازم نیست)"
+
+#: .\market\forms.py:115 .\market\forms.py:145
+msgid "Remaining (we don't sell more than this number)"
+msgstr "تعداد (بیشتر از این تعداد نمی‌فروشیم)"
+
+#: .\market\forms.py:132
+msgid "Already have a shelf for this product"
+msgstr ""
+
+#: .\market\forms.py:138
+msgid "No such shop"
+msgstr "چنین فروشگاهی نیست"
+
+#: .\market\forms.py:157
+msgid "Product's name"
+msgstr "نام کالا"
+
+#: .\market\forms.py:158
+msgid "A brief description about product"
+msgstr "توضیحی مختصر درباره‌ی کالا"
+
+#: .\market\forms.py:170 .\market\forms.py:202
+msgid "Edit Shop"
+msgstr "ویرایش فروشگاه"
+
+#: .\market\forms.py:171 .\market\forms.py:203
+msgid "Add Shelf"
+msgstr "افزودن قفسه"
+
+#: .\market\forms.py:172 .\market\forms.py:204
+msgid "Edit Shelf"
+msgstr "ویرایش قفسه"
+
+#: .\market\forms.py:173 .\market\forms.py:205
+msgid "Delete Shelf"
+msgstr "حذف قفسه"
+
+#: .\market\forms.py:174 .\market\forms.py:206
+msgid "Product Registration Request"
+msgstr "درخواست ثبت کالا"
+
+#: .\market\forms.py:197
+msgid "Already owns this shop"
+msgstr "از قبل مالک این فروشگاه است"
+
+#: .\market\models.py:26
+msgid "product name"
+msgstr "نام کالا"
+
+#: .\market\models.py:29 .\market\models.py:47
+msgid "description"
+msgstr "توضیح"
+
+#: .\market\models.py:44
+msgid "shop name"
+msgstr "نام فروشگاه"
+
+#: .\market\models.py:52
+msgid "email address"
+msgstr "آدرس ایمیل"
+
+#: .\market\models.py:59
+msgid "logo"
+msgstr "نماد"
+
+#: .\market\models.py:64 .\market\templates\market\view_shop.html:28
+msgid "owners"
+msgstr "مالکان"
+
+#: .\market\models.py:71
+msgid "products"
+msgstr "کالاها"
+
+#: .\market\models.py:89 .\market\templates\market\view_shop.html:34
+msgid "founder"
+msgstr "بنیانگذار"
+
+#: .\market\models.py:90 .\market\templates\market\edit_shop.html:6
+msgid "edit shop"
+msgstr "ویرایش فروشگاه"
+
+#: .\market\models.py:91
+msgid "open shelf"
+msgstr "بازکردن قفسه"
+
+#: .\market\models.py:92 .\market\templates\market\edit_shelf.html:7
+#: .\market\templates\market\edit_shelf.html:21
+msgid "edit shelf"
+msgstr "ویرایش قفسه"
+
+#: .\market\models.py:93 .\market\templates\market\delete_shelf.html:7
+msgid "delete shelf"
+msgstr "حذف قفسه"
+
+#: .\market\models.py:94 .\market\templates\market\add_product.html:20
+#: .\market\templates\market\view_shop.html:77
+msgid "product registration request"
+msgstr "درخواست ثبت کالا"
+
+#: .\market\models.py:110
+msgid "product"
+msgstr "کالا"
+
+#: .\market\models.py:111
+msgid "shop"
+msgstr "فروشگاه"
+
+#: .\market\models.py:112
+msgid "price"
+msgstr "قیمت"
+
+#: .\market\models.py:118
+msgid "remaining"
+msgstr "تعداد"
+
+#: .\market\models.py:119
+msgid "opening date"
+msgstr "تاریخ افتتاح"
+
+#: .\market\models.py:120
+msgid "last edit"
+msgstr "آخرین ویرایش"
+
+#: .\market\models.py:135
+msgid "user"
+msgstr "کاربر"
+
+#: .\market\models.py:139
+msgid "orders"
+msgstr "سفارشات"
+
+#: .\market\models.py:155 .\market\models.py:160
+msgid "submitted"
+msgstr "خریده"
+
+#: .\market\models.py:157 .\market\models.py:162
+msgid "active"
+msgstr "فعال"
+
+#: .\market\models.py:160 .\market\models.py:162
+msgid "anonymus"
+msgstr "ناشناس"
+
+#: .\market\models.py:181
+msgid "number of products"
+msgstr "تعداد کالا"
+
+#: .\market\models.py:189
+msgid "%(num)d %(product)s"
+msgid_plural "%(num)d %(product)ss"
+msgstr[0] "%(num)d عدد %(product)s"
+msgstr[1] "%(num)d عدد %(product)s"
+
+#: .\market\models.py:256
+msgid "email"
+msgstr "ایمیل"
+
+#: .\market\models.py:262
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\market\models.py:268
+msgid "first name"
+msgstr "نام"
+
+#: .\market\models.py:274
+msgid "last name"
+msgstr "نام خانوادگی"
+
+#: .\market\models.py:280
+msgid "profile"
+msgstr "نمایه"
+
+#: .\market\templates\market\add_owner.html:6
+#: .\market\templates\market\view_shop.html:45
+msgid "add owner"
+msgstr "افزودن مالک"
+
+#: .\market\templates\market\add_owner.html:21
+#, python-format
+msgid ""
+"\n"
+"                Add owner for %(shop_name)s shop\n"
+"            "
+msgstr ""
+"\n"
+"افزودن مالک به فروشگاه %(shop_name)s"
+
+#: .\market\templates\market\add_owner.html:28
+msgid "choose a user"
+msgstr "انتخاب کاربر"
+
+#: .\market\templates\market\add_owner.html:32
+#: .\market\templates\market\delete_owner.html:30
+#: .\market\templates\market\edit_owner.html:28
+msgid "permissions"
+msgstr "اجازه‌ها"
+
+#: .\market\templates\market\add_owner.html:42
+#: .\market\templates\market\add_shelf.html:36
+#: .\market\templates\market\add_shop.html:32
+msgid "register"
+msgstr "ثبت"
+
+#: .\market\templates\market\add_product.html:6
+msgid "add product"
+msgstr "افزودن کالا"
+
+#: .\market\templates\market\add_product.html:30
+msgid "request"
+msgstr "درخواست"
+
+#: .\market\templates\market\add_shelf.html:6
+#: .\market\templates\market\view_shop.html:74
+msgid "add shelf"
+msgstr "افزودن قفسه"
+
+#: .\market\templates\market\add_shelf.html:21
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "        Add shelf to %(shop.name)s shop\n"
+#| "        "
+msgid ""
+"\n"
+"        Add shelf to %(shop_name)s shop\n"
+"        "
+msgstr ""
+"\n"
+"افزودن قفسه به فروشگاه %(shop_name)s"
+
+#: .\market\templates\market\add_shelf_no_shop.html:6
+#: .\market\templates\market\edit_shelf_no_shelf.html:6
+msgid "error"
+msgstr "خطا"
+
+#: .\market\templates\market\add_shelf_no_shop.html:20
+msgid ""
+"\n"
+"        Please select a shop from 'My Shop' page.\n"
+"        then choose 'Add Shelf' from there.\n"
+"        "
+msgstr ""
+"\n"
+"لطفاً یک فروشگاه از صفحه‌ی «فروشگاه‌های من» انتخاب کنید.\n"
+"سپس گزینه‌ی «افزودن قفسه» را بزنید."
+
+#: .\market\templates\market\add_shop.html:6
+msgid "add shop"
+msgstr "افزودن فروشگاه"
+
+#: .\market\templates\market\add_shop.html:20
+msgid "register shop"
+msgstr "ثبت فروشگاه"
+
+#: .\market\templates\market\add_shop.html:33
+msgid "Already registered your shop?"
+msgstr "قبلاً فروشگاهتان را ثبت کردید؟"
+
+#: .\market\templates\market\add_shop.html:33
+#: .\market\templates\market\base.html:140
+#: .\market\templates\market\view_shop.html:6
+msgid "my shop"
+msgstr "فروشگاه من"
+
+#: .\market\templates\market\base.html:70
+msgid "here is a side-bar with bunch of filter options"
+msgstr "اینجا یک نوار جانبی حاوی چندین گزینه‌ی گلچین است (یعنی مثلاً باید باشه)"
+
+#: .\market\templates\market\base.html:85
+#: .\market\templates\market\edit_account.html:37
+#: .\market\templates\market\my_account.html:7
+msgid "my account"
+msgstr "حساب من"
+
+#: .\market\templates\market\base.html:102
+msgid "login | sign-in"
+msgstr "ورود | ثبت‌نام"
+
+#: .\market\templates\market\base.html:121
+#: .\market\templates\market\my_account.html:73
+#: .\market\templates\market\my_basket.html:7
+msgid "cart"
+msgstr "سبد خرید"
+
+#: .\market\templates\market\base.html:151
+#: .\market\templates\market\my_account.html:43
+msgid "logout"
+msgstr "خروج"
+
+#: .\market\templates\market\base.html:418
+msgid "here is the bottom-bar with usefull links like e-namad and others."
+msgstr ""
+"اینجا یک نوار زیرین حاوی پیوندهای مفید مثل نماد اعتماد الکترونیک و از این "
+"دست موارد است. (یعنی مثلاً باید باشه)"
+
+#: .\market\templates\market\delete_owner.html:7
+msgid "delete owner"
+msgstr "حذف مالک"
+
+#: .\market\templates\market\delete_owner.html:21
+msgid "remove ownership"
+msgstr "سلب مالکیت"
+
+#: .\market\templates\market\delete_owner.html:25
+msgid "ownership information"
+msgstr "اطلاعات مالکیت"
+
+#: .\market\templates\market\delete_owner.html:49
+#: .\market\templates\market\delete_shelf.html:36
+#: .\market\templates\market\delete_shop.html:33
+#: .\market\templates\market\my_shops.html:38
+#: .\market\templates\market\view_shop.html:38
+#: .\market\templates\market\view_shop.html:67
+msgid "delete"
+msgstr "حذف"
+
+#: .\market\templates\market\delete_shelf.html:21
+msgid "close shelf"
+msgstr "بستن قفسه"
+
+#: .\market\templates\market\delete_shelf.html:25
+#: .\market\templates\market\edit_shelf.html:25
+msgid "shelf information"
+msgstr "اطلاعات قفسه"
+
+#: .\market\templates\market\delete_shop.html:7
+msgid "delete shop"
+msgstr "حذف فروشگاه"
+
+#: .\market\templates\market\delete_shop.html:21
+msgid "close shop"
+msgstr "بستن فروشگاه"
+
+#: .\market\templates\market\delete_shop.html:25
+msgid "shop information"
+msgstr "اطلاعات فروشگاه"
+
+#: .\market\templates\market\dummy_payment.html:6
+#: .\market\templates\market\dummy_payment.html:29
+msgid "Buy"
+msgstr "خرید"
+
+#: .\market\templates\market\dummy_payment.html:22
+#, python-format
+msgid ""
+"\n"
+"            %(user)s's Imaginary Shopping\n"
+"            "
+msgstr ""
+"\n"
+"خرید فرضی %(user)s"
+
+#: .\market\templates\market\dummy_payment.html:26
+msgid "ُTotal Sum"
+msgstr "قیمت کل"
+
+#: .\market\templates\market\edit_account.html:6
+#: .\market\templates\market\my_account.html:42
+msgid "edit account"
+msgstr "ویرایش حساب"
+
+#: .\market\templates\market\edit_account.html:21
+#, python-format
+msgid ""
+"\n"
+"            Edit %(user_name)s's Account\n"
+"            "
+msgstr ""
+"\n"
+"ویرایش حساب %(user_name)s"
+
+#: .\market\templates\market\edit_account.html:36
+#: .\market\templates\market\edit_owner.html:38
+#: .\market\templates\market\edit_shelf.html:37
+#: .\market\templates\market\edit_shop.html:35
+msgid "confirm"
+msgstr "تأیید"
+
+#: .\market\templates\market\edit_account.html:37
+msgid "Are you dissuaded?"
+msgstr "آیا منصرف شدید؟"
+
+#: .\market\templates\market\edit_owner.html:6
+msgid "edit owner"
+msgstr "ویرایش مالکیت"
+
+#: .\market\templates\market\edit_owner.html:21
+#, python-format
+msgid ""
+"\n"
+"            Edit %(owner)s's Ownership over %(shop)s\n"
+"            "
+msgstr ""
+"\n"
+"ویرایش مالکیت %(owner)s بر فروشگاه %(shop)s"
+
+#: .\market\templates\market\edit_shelf_no_shelf.html:20
+msgid ""
+"\n"
+"        Please select a shop from 'my_shop' page.\n"
+"        then choose 'add shelf' from there.\n"
+"        "
+msgstr ""
+"\n"
+"لطفاً یک فروشگاه از صفحه‌ی «فروشگاه‌های من» انتخاب کنید.\n"
+"سپس گزینه‌ی «افزودن قفسه» را بزنید."
+
+#: .\market\templates\market\edit_shop.html:21
+#, python-format
+msgid ""
+"\n"
+"            Edit %(shop_name)s Shop\n"
+"            "
+msgstr ""
+"\n"
+"ویرایش فروشگاه %(shop_name)s"
+
+#: .\market\templates\market\home.html:6
+msgid "home"
+msgstr "خانه"
+
+#: .\market\templates\market\login.html:6
+#: .\market\templates\market\login.html:22
+#: .\market\templates\market\register.html:42
+msgid "login"
+msgstr "ورود"
+
+#: .\market\templates\market\login.html:33
+msgid "Login"
+msgstr "ورود"
+
+#: .\market\templates\market\login.html:34
+msgid "Don't you have an account?"
+msgstr "حساب ندارید؟"
+
+#: .\market\templates\market\login.html:34
+#: .\market\templates\market\register.html:6
+#: .\market\templates\market\register.html:22
+#: .\market\templates\market\register.html:41
+msgid "sign-in"
+msgstr "ثبت‌نام"
+
+#: .\market\templates\market\my_account.html:23
+msgid "personal information"
+msgstr "اطلاعات شخصی"
+
+#: .\market\templates\market\my_account.html:48
+msgid "carts"
+msgstr "خریدها"
+
+#: .\market\templates\market\my_account.html:59
+msgid "current cart"
+msgstr "سبد فعلی"
+
+#: .\market\templates\market\my_account.html:67
+#: .\market\templates\market\my_basket.html:37
+msgid "sum"
+msgstr "مجموع"
+
+#: .\market\templates\market\my_basket.html:23
+#, python-format
+msgid ""
+"\n"
+"            %(user)ss cart\n"
+"            "
+msgstr ""
+"\n"
+"سبد %(user)s"
+
+#: .\market\templates\market\my_basket.html:34
+msgid "total price"
+msgstr "قیمت کل"
+
+#: .\market\templates\market\my_basket.html:40
+msgid "buy"
+msgstr "خرید"
+
+#: .\market\templates\market\my_shops.html:6
+msgid "my shops"
+msgstr "فروشگاه‌های من"
+
+#: .\market\templates\market\my_shops.html:23
+msgid "list of your shops"
+msgstr "فهرست فروشگاه‌های شما"
+
+#: .\market\templates\market\my_shops.html:33
+#: .\market\templates\market\view_shop.html:23
+#: .\market\templates\market\view_shop.html:37
+#: .\market\templates\market\view_shop.html:64
+msgid "edit"
+msgstr "ویرایش"
+
+#: .\market\templates\market\my_shops.html:45
+msgid "add a new shop"
+msgstr "افزودن فروشگاه جدید"
+
+#: .\market\templates\market\register.html:26
+msgid "necessary information"
+msgstr "اطلاعات لازم"
+
+#: .\market\templates\market\register.html:33
+msgid "optional information"
+msgstr "اطلاعات اختیاری"
+
+#: .\market\templates\market\register.html:42
+msgid "Already signed in?"
+msgstr "قبلاً ثبت‌نام کردید؟"
+
+#: .\market\templates\market\resolve_baskets.html:6
+msgid "resolve cart ambiguity"
+msgstr "رفع ابهام سبد خرید"
+
+#: .\market\templates\market\resolve_baskets.html:36
+msgid "Your previous cart conflicts this cart"
+msgstr "سبد قبلی شما با این سبد همپوشانی دارد"
+
+#: .\market\templates\market\resolve_baskets.html:41
+msgid "previous cart"
+msgstr "سبد قبلی"
+
+#: .\market\templates\market\resolve_baskets.html:47
+msgid "anonymous cart"
+msgstr "سبد ناشناس"
+
+#: .\market\templates\market\resolve_baskets.html:55
+msgid "Add two carts"
+msgstr "جمع دو سبد"
+
+#: .\market\templates\market\resolve_baskets.html:56
+msgid "Ignore anonymous cart"
+msgstr "چشم‌پوشی از سبد ناشناس"
+
+#: .\market\templates\market\resolve_baskets.html:57
+msgid "Ignore previous cart"
+msgstr "چشم‌پوشی از سبد قبلی"
+
+#: .\market\templates\market\shelf_details.html:7
+#: .\market\templates\market\shelf_details.html:23
+msgid "shelf details"
+msgstr "جزئیات قفسه"
+
+#: .\market\templates\market\shelf_details.html:43
+msgid "add to cart"
+msgstr "افزودن به سبد خرید"
+
+#: .\market\templates\market\view_shop.html:51
+msgid "shelves"
+msgstr "قفسه‌ها"
+
+#: .\market\templates\market\widgets\image.html:4
+msgid "select image"
+msgstr "انتخاب تصویر"
+
+#: .\market\templates\market\widgets\image.html:7
+msgid "No image is chosen"
+msgstr "تصویری انتخاب نشده"
+
+#: .\market\views.py:54
+msgid "Password and Email don't match"
+msgstr "رمز با ایمیل نمی‌خواند "
+
+#: .\market\views.py:55
+msgid "Pay attention to your keyboard layout and different number inputs"
+msgstr "به فارسی یا انگلیسی بودن و ورودی اعداد صفحه‌کلید دقت کنید"
+
+#: .\market\widgets.py:21
+msgid "Should option be active"
+msgstr "آیا گزینه فعال باشد"
+
+#: .\market\widgets.py:39
+msgid "Your Choice"
+msgstr "انتخاب شما"
