@@ -4,9 +4,6 @@ __pycache__/
 *.sqlite3
 pyvenv.cfg
 media/
-Include/
-Lib/
-Scripts/
 todo.txt
 src/demo_shop/market/static/market/fonts/
 src/demo_shop/market/static/market/svg/
